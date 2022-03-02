@@ -8,4 +8,12 @@ console.log(first)
 console.log(typeof "Rafay")
 console.log(typeof 5)
 
-
+//data Types 
+//Examples
+let firstname = "Abdul"
+let last_name = "Rafay"
+const Country = "Pakistan"
+let isMarried = false
+let age = 22
+//printing values
+console.log(firstname,last_name, Country, isMarried, age)
