@@ -257,3 +257,65 @@ Example code:
 console.log(typeof, "Rafay")
 console.log(typeof, 5)
 ```
+# Variables in JavaScript:
+
+Variables are containers of data. Variables are used to store data in a memory location. When a variable is declared, a memory is allocated as well. when a variable is assigned with a value the memory space is filled with the data..
+
+To declared a variable in JavaScript we use three ways
+
+1. var
+2. let
+3. const
+
+These are the keyword through which variables are assigned.
+
+- If the data in the variable are changing then we used let.
+- If the data in the variable is fixed then we use constant.
+- If the data is okay then we can use var.
+
+**Some Rules for Declaring Variable in JavaScript:**
+
+- A JavaScript variable name should not begin with a number.
+- A JavaScript variable name does not allow special characters except dollar sign and underscore.
+- A JavaScript variable name follows a camelCase convention.
+- A JavaScript variable name should not have space between words.
+
+ **Correct Example of Declaring Variables:** 
+
+```jsx
+fistName
+LastName
+third_name
+captial_city
+num1
+num456
+year_20001
+```
+
+**Wrong way to declaring Variables**:
+
+ 
+
+```jsx
+first-name
+  1_num
+  num_#_1
+```
+
+Example of Declared Variable with data Types:
+
+```jsx
+// Syntax
+let nameofVariable = value
+```
+
+```jsx
+//Examples
+let firstname= "Abdul"
+let last_name= "Rafay"
+const Country= "Pakistan"
+let isMarried= false
+let age= 22
+//printing values
+console.log(fistname,last_name, Country, isMarried, age)
+```
