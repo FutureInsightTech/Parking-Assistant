@@ -26,6 +26,7 @@ console.log(nums == numbers)
 let age = 29
 const gravity = 9.8
 var mass =110
-const PI= 3.18
+//const PI= 3.18
 
-console.log(age, gravity, mass, PI)
+console.log(age, gravity, mass)
+
