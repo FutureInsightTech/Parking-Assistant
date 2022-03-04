@@ -14,15 +14,17 @@ const mysql = require("mysql");
 //This the env where the important passord and file will be kept
 const dotenv = require("dotenv");
 
+dotenv.config({path:  './.env'});
 //Staring of the server
 const app = express();
 //Connection and the variables rquired for the connectin with the datbase.
 //The connection is beeing trafered to the variable called db
 const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'parking_data'
+    //All of the values are in the .env file where they will be saved
+    host: process.env.DATABASE_HOST,
+    user: process.env.DATABASE_USER,
+    password: process.env.DATABASE_PASSWORD,
+    database: process.env.DATABASE
 });
 
 //Check if the data base is connected or not if not then eror will be shod on the terminal
