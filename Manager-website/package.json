@@ -1,0 +1,20 @@
+{
+  "name": "manager-website",
+  "version": "1.0.0",
+  "description": "The manager and the user website using node js and the handlebars",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "Abdul Rafay & Saif Akhtar",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "hbs": "^4.2.0",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.15"
+  }
+}
