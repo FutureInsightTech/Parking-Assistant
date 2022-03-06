@@ -41,7 +41,7 @@ router.get("/about", (req, res) =>{
     res.render("about")
 });
 
-app.get("/add-user", (req, res) =>{
+router.get("/add-user", (req, res) =>{
     res.render("add-user");
 });
 
