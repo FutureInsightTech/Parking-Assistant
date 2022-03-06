@@ -44,6 +44,11 @@ const publicDirectory = path.join(__dirname, './public');
 //To use all the public iibiaries we need to tell the server to use the files.
 app.use(express.static(publicDirectory));
 
+//passing the url from the website of any data type.
+app.use(express.urlencoded({extend: false}));
+//this line of code will make sure that the data is comming in the form of json.
+app.use(express.json());
+
 //setting the template for the website using handle bars
 app.set("view engine", 'hbs');
 
@@ -60,6 +65,9 @@ db.connect( (error) => {
 //define route for the webpage
 //All of the webpages will be called from the roter folder and the pages.js fill will run to call the pages.
 app.use("/" ,require('./routes/pages'));
+
+//fetching the aurth file
+app.use("/auth", require('./routes/auth'));
 
 
 //The is port number from which the server will rn
