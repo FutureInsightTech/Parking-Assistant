@@ -1,21 +1,4 @@
-/* nav{
-    background-color: orange;
-    color: black;
-    padding: 30px 60px;
-    display: flex;
-    justify-content: space-between;
-}
-
-#header{
-    /* background-image: url(../images/wallpaperflare.com_wallpaper.jpg); */
-    /* background-image: url("../image/wallpaperflare.com_wallpaper.jpg"); */
-    /* height: 100vh;
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed; 
-}    
-*/
-
+/* CSS code for The Index Page */
 *{
     margin: 0;
     padding: 0;
@@ -158,6 +141,72 @@ button:hover{
 .hover-underline-animation:hover:after {
   transform: scaleX(1);
   transform-origin: bottom left;
+}
+/* Css for the Manager Login Pages */
+form {
+	width: 500px;
+	border: 2px solid #ccc;
+	padding: 30px;
+	background: #fff;
+	border-radius: 15px;
+    text-align:center;
+    margin:auto;
+    display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+h2 {
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+input {
+	display: block;
+	border: 2px solid #ccc;
+	width: 95%;
+	padding: 10px;
+	margin: 10px auto;
+	border-radius: 5px;
+}
+label {
+	color: #888;
+	font-size: 18px;
+	padding: 10px;
+}
+.btn{
+    float: right;
+	background: #555;
+	padding: 10px 15px;
+	color: #fff;
+	border-radius: 5px;
+	margin-right: 10px;
+	border: none;
+}
+.btn:hover{
+    opacity: .7;
+}
+h1 {
+	text-align: center;
+	color: #fff;
+}
+
+/* a {
+	float: right;
+	background: #555;
+	padding: 10px 15px;
+	color: #fff;
+	border-radius: 5px;
+	margin-right: 10px;
+	border: none;
+	text-decoration: none;
+}
+a:hover{
+	opacity: .7;
+} */
+table{
+	width: 100%;
 }
 
  

@@ -72,6 +72,10 @@ app.get("/dashboard", (req, res) => {
 
 });
 
+app.get("/manager_login", (req, res) => {
+    res.render("manager_login")
+});
+
 //The is port number from which the server will rn
 app.listen(5000,() => {
     console.log("Node Server is running at port 5000");
