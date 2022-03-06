@@ -57,6 +57,12 @@ db.connect( (error) => {
     }
 });
 
+//KEY Points
+// The Default Directory for handle Bars is the View Directory
+// The Pages will be created in the view Folder
+// The images can not be loaded directly becuase by default everything is priviate.
+//  In order to to add images or static files in the website you need to create a public folder.
+
 
 //Default and refirect to the default home page
 //It is the route for the main run file which is the index.hbs
@@ -72,8 +78,19 @@ app.get("/dashboard", (req, res) => {
 
 });
 
+//this will load the manager login page
 app.get("/manager_login", (req, res) => {
     res.render("manager_login")
+});
+
+//this will load the contact page when /contact will be rendered
+app.get("/contact", (req, res) =>{
+    res.render("contact");
+});
+
+//this page will render about page when /about wwill be called
+app.get("/about", (req, res) =>{
+    res.render("about")
 });
 
 //The is port number from which the server will rn
