@@ -93,6 +93,10 @@ app.get("/about", (req, res) =>{
     res.render("about")
 });
 
+app.get("/add-user", (req, res) =>{
+    res.render("add-user");
+});
+
 //The is port number from which the server will rn
 app.listen(5000,() => {
     console.log("Node Server is running at port 5000");
