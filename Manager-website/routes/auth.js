@@ -12,8 +12,11 @@
 const express = require("express");
 //this the controller for the add user data into the database
 const authController = require("../controllers/auth")
-
+//suggestion controller and calling the controller
 const suggestionController = require("../controllers/suggest")
+//calling the login controllerfrom the controller folders
+const managerloginController = require("../controllers/managerlogin")
+
 
 //getting the router for the webpages.
 const router = express.Router();
@@ -21,6 +24,9 @@ const router = express.Router();
 router.post("/register",authController.register);
 //Redirecting to the suggestion  box for the user.
 router.post("/suggestion",suggestionController.register);
-
+//Redirecting to the login controllerfor the manager and for the user.
+//router.post("/manager_login",managerloginController.managerlogin);
+router.post("/manager_login",managerloginController.register);
+//Exporting this module to run
 module.exports = router;
    

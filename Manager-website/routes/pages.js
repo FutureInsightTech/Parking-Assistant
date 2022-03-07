@@ -61,4 +61,14 @@ router.get("/service", (req, res) =>{
     res.render("service");
 });
 
+//this will render the manager dashboard after login
+router.get("/manager-dashboard", (req, res) =>{
+    res.render("manager-dashboard");
+})
+
+router.get("/logout", (req, res) =>{
+    req.session.destroy();
+    res.redirect("/manager_login");
+})
+
 module.exports = router;

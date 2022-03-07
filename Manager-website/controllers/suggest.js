@@ -7,17 +7,8 @@
 //  #                                                                             #
 //  ###############################################################################
 
-
-//sql file to use for the connection.
-const mysql = require("mysql");
-
-const db = mysql.createConnection({
-    //All of the values are in the .env file where they will be saved
-    host: process.env.DATABASE_HOST,
-    user: process.env.DATABASE_USER,
-    password: process.env.DATABASE_PASSWORD,
-    database: process.env.DATABASE
-});
+//connection with the database and fetching the connection file from the datbase folder.
+var con = require("../database/connection");
 
 exports.register =(req,res) => {
     console.log(req.body);
@@ -29,7 +20,7 @@ exports.register =(req,res) => {
     const message = req.body.message;
 
     //checking if there is an email that is already into the database.
-    db.query("SELECT Email from contact_page WHERE Email  = ?", [email], (error,result) => {
+    con.query("SELECT Email from contact_page WHERE Email  = ?", [email], (error,result) => {
         if(error){
             console.log(error);
 
@@ -40,9 +31,8 @@ exports.register =(req,res) => {
             });
         }
 
-
         //Adding data into the Database
-        db.query("INSERT INTO contact_page SET ?", {Name:name, Email:email, Subject:subject, Message: message}, (error, result) => {
+        con.query("INSERT INTO contact_page SET ?", {Name:name, Email:email, Subject:subject, Message: message}, (error, result) => {
             if(error){
                 console.log("error");
             }

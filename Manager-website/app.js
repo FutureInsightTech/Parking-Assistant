@@ -9,25 +9,18 @@
 
 //Express is used to start the node server
 const express = require("express");
-//mysql libiary
-const mysql = require("mysql");
-//This the env where the important passord and file will be kept
-const dotenv = require("dotenv");
 // Default come with node js no need to install path.
 const path = require("path");
+//connection with database and fetching the connection file
+const con = require("./database/connection");
 
-dotenv.config({path:  './.env'});
+const session = require("./session/session");
+//adding the express session to the application.js session
+// const session = require("express-session");
+
+
 //Staring of the server
 const app = express();
-//Connection and the variables rquired for the connectin with the datbase.
-//The connection is beeing trafered to the variable called db
-const db = mysql.createConnection({
-    //All of the values are in the .env file where they will be saved
-    host: process.env.DATABASE_HOST,
-    user: process.env.DATABASE_USER,
-    password: process.env.DATABASE_PASSWORD,
-    database: process.env.DATABASE
-});
 
 
 app.use(express.static("image"));
@@ -36,6 +29,12 @@ app.use(express.static("image"));
 app.get("/static", (req, res) => {
     res.render("static");
 });
+
+// app.use(session({
+//     secret: "ABCDefg",
+//     resave: false,
+//     saveUninitialized: true,
+// }));
 
 //this take two parameters __dirname is  a node js variable.
 //THis will provide a path to current directory.
@@ -52,23 +51,12 @@ app.use(express.json());
 //setting the template for the website using handle bars
 app.set("view engine", 'hbs');
 
-//Check if the data base is connected or not if not then eror will be shod on the terminal
-db.connect( (error) => {
-    if(error){
-        console.log(error);
-    }
-    else {
-        console.log("My SQL Database is connected successfully...");
-    }
-});
-
 //define route for the webpage
 //All of the webpages will be called from the roter folder and the pages.js fill will run to call the pages.
 app.use("/" ,require('./routes/pages'));
 
 //fetching the aurth file
 app.use("/auth", require('./routes/auth'));
-
 
 //The is port number from which the server will rn
 app.listen(5000,() => {

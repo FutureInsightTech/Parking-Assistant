@@ -38,13 +38,13 @@
             </div>
             <br>
             <br>
-            <form>
+            <form method="POST" action="/auth/manager_login">
                 <h2> Manager Login</h2>
                 <label>Email: </label>
-                <input type="text" name="manager_email" placeholder="Email"><br>
+                <input type="text" id="email"name="email" placeholder="Email"><br>
 
                 <label>Password</label>
-                <input type="password" name="manager_password" placeholder="Password"><br>
+                <input type="password" id="password" name="password" placeholder="Password"><br>
 
                 <button class="btn"type="submit">Login</button>
             </form>
