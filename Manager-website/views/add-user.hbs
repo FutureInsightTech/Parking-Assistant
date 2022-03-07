@@ -24,7 +24,7 @@
 
     <title>Add User</title>
 </head>
-<body>
+<body style="overflow:hidden">
     <div class="banner">
             <div class="navbar">
                 <img  src="/image/logo2.jpg"class="logo">
@@ -35,6 +35,9 @@
             </div>
             <form action="/auth/register" method="POST">
                 <h2>Add User Account</h2>
+                {{#if message}}
+                    <h4 class="alert alert-danger mt-12">{{message}}</h4>
+                {{/if}}
                 <label>Name</label>
                 <input type="text" name="user_name" placeholder="User Name" id="user_name">
                 <label>Email</label>
