@@ -51,8 +51,14 @@ router.get("/about", (req, res) =>{
     res.render("about")
 });
 
+//this will render the add user page.
 router.get("/add-user", (req, res) =>{
     res.render("add-user");
+});
+
+//this will render the service page
+router.get("/service", (req, res) =>{
+    res.render("service");
 });
 
 module.exports = router;

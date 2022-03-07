@@ -94,8 +94,15 @@
 				      		<div id="form-message-success" class="mb-4 w-100 text-center">
 				            Your message was sent, thank you!
 				      		</div>
-									<form id="contactForm" name="contactForm" class="contactForm">
+									<form id="contactForm" name="contactForm" class="contactForm" action ="/auth/suggestion", method ="POST">
 										<div class="row">
+											<div class="col-md-12">
+												<div>
+													{{#if message}}
+														<h4 class="alert alert-danger mt-12">{{message}}</h4>
+													{{/if}}
+												</div>
+											</div>
 											<div class="col-md-12">
 												<div class="form-group">
 													<input type="text" class="form-control" name="name" id="name" placeholder="Name">
