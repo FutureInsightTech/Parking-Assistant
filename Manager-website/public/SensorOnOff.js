@@ -1,9 +1,6 @@
 var socket = io.connect("http://localhost:3000/");
 
 socket.on("data", function (data) {
-  //console.clear();
-  // console.log(data);
-
   var res = data.split(" ");
   if (res[0] + res[1] === "Sensor1:") {
     document.getElementById("sensor1").innerHTML = res[0] + res[1];
