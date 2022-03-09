@@ -30,11 +30,11 @@ app.get("/static", (req, res) => {
     res.render("static");
 });
 
-// app.use(session({
-//     secret: "ABCDefg",
-//     resave: false,
-//     saveUninitialized: true,
-// }));
+ app.use(session({
+     secret: "ABCDefg",
+     resave: false,
+     saveUninitialized: true,
+ }));
 
 //this take two parameters __dirname is  a node js variable.
 //THis will provide a path to current directory.
