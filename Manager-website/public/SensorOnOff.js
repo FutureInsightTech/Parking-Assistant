@@ -8,10 +8,14 @@ socket.on("data", function (data) {
     if (res[2] === "1") {
       document.getElementById("sensor1ParkOn").innerHTML =
         " <i class='fa-solid fa-square-parking fa-3x' style='color:green;height: 50px;width: 50px;'></i>";
+      document.getElementById("sensor1availability").innerHTML =
+        " <h6>Available </h6>";
     }
     if (res[2] === "0") {
       document.getElementById("sensor1ParkOn").innerHTML =
         " <i class='fa-solid fa-square-parking fa-3x' style='color:red;height: 50px;width: 50px;'></i>";
+      document.getElementById("sensor1availability").innerHTML =
+        " <h6>Slot Reserved </h6>";
     }
   }
 
@@ -21,10 +25,14 @@ socket.on("data", function (data) {
     if (res[2] === "1") {
       document.getElementById("sensor2ParkOn").innerHTML =
         " <i class='fa-solid fa-square-parking fa-3x' style='color:green;height: 50px;width: 50px;'></i>";
+      document.getElementById("sensor2availability").innerHTML =
+        " <h6>Available </h6>";
     }
     if (res[2] === "0") {
       document.getElementById("sensor2ParkOn").innerHTML =
         " <i class='fa-solid fa-square-parking fa-3x' style='color:red;height: 50px;width: 50px;'></i>";
+      document.getElementById("sensor2availability").innerHTML =
+        " <h6>Slot Reserved </h6>";
     }
   }
   if (res[0] + res[1] === "Sensor3:") {
@@ -33,10 +41,14 @@ socket.on("data", function (data) {
     if (res[2] === "1") {
       document.getElementById("sensor3ParkOn").innerHTML =
         " <i class='fa-solid fa-square-parking fa-3x' style='color:green;height: 50px;width: 50px;'></i>";
+      document.getElementById("sensor3availability").innerHTML =
+        " <h6>Available </h6>";
     }
     if (res[2] === "0") {
       document.getElementById("sensor3ParkOn").innerHTML =
         " <i class='fa-solid fa-square-parking fa-3x' style='color:red;height: 50px;width: 50px;'></i>";
+      document.getElementById("sensor3availability").innerHTML =
+        " <h6>Slot Reserved </h6>";
     }
   }
   if (res[0] + res[1] === "Sensor4:") {
@@ -45,10 +57,14 @@ socket.on("data", function (data) {
     if (res[2] === "1") {
       document.getElementById("sensor4ParkOn").innerHTML =
         " <i class='fa-solid fa-square-parking fa-3x' style='color:green;height: 50px;width: 50px;'></i>";
+      document.getElementById("sensor4availability").innerHTML =
+        " <h6>Available </h6>";
     }
     if (res[2] === "0") {
       document.getElementById("sensor4ParkOn").innerHTML =
         " <i class='fa-solid fa-square-parking fa-3x' style='color:red;height: 50px;width: 50px;'></i>";
+      document.getElementById("sensor4availability").innerHTML =
+        " <h6>Slot Reserved </h6>";
     }
   }
   if (res[0] + res[1] === "Sensor5:") {
@@ -57,10 +73,14 @@ socket.on("data", function (data) {
     if (res[2] === "1") {
       document.getElementById("sensor5ParkOn").innerHTML =
         " <i class='fa-solid fa-square-parking fa-3x' style='color:green;height: 50px;width: 50px;'></i>";
+      document.getElementById("sensor5availability").innerHTML =
+        " <h6>Available </h6>";
     }
     if (res[2] === "0") {
       document.getElementById("sensor5ParkOn").innerHTML =
         " <i class='fa-solid fa-square-parking fa-3x' style='color:red;height: 50px;width: 50px;'></i>";
+      document.getElementById("sensor5availability").innerHTML =
+        " <h6>Slot Reserved </h6>";
     }
   }
 });
