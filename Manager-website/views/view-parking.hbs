@@ -4,8 +4,10 @@
 <head>
     <title>View Live location</title>
     <link rel="stylesheet" type="text/css" href="./styles.css">
-    <script src="../public/js/socket.io.js"></script>
-    <script src="../public/js/SensorOnOff.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"
+        integrity="sha512-MgkNs0gNdrnOM7k+0L+wgiRc5aLgl74sJQKbIWegVIMvVGPc1+gc1L2oK9Wf/D9pq58eqIJAxOonYPVE5UwUFA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./SensorOnOff.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -32,86 +34,46 @@
                 <tr>
                     <th>Sensors</th>
                     <th>On/Off</th>
-                    <th>
-                        <button type="button" class="btn btn-dark" data-bs-toggle="modal"
-                            data-bs-target="#ParkingSeats">
-                            See Available Spots
-                        </button>
+                    <th>Parking Slot</th>
 
-                        <div class="modal fade" id="ParkingSeats" tabindex="-1" aria-labelledby="ParkingSeatsLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="ParkingSeatslLabel">Parking Seats Available</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="container">
-                                            <div class="row">
-                                                <div class="content col-sm-4">
-                                                    Parking Spot 1:
-                                                    <i id="sensor1ParkOn" class="img-responsive"></i>
-                                                </div>
-                                                <div class="content col-sm-4">
-                                                    Parking Spot 2:
-                                                    <i id="sensor2ParkOn" class="img-responsive"></i>
-                                                </div>
-                                                <div class="content col-sm-4">
-                                                    Parking Spot 3:
-                                                    <i id="sensor3ParkOn" class="img-responsive"></i>
-                                                </div>
-                                                <div class="content col-sm-4">
-                                                    Parking Spot 4:
-                                                    <i id="sensor4ParkOn" class="img-responsive"></i>
-                                                </div>
-                                                <div class="content col-sm-4">
-                                                    Parking Spot 5:
-                                                    <i id="sensor5ParkOn" class="img-responsive"></i>
-                                                </div>
-
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </th>
                 </tr>
                 <tr>
                     <td id="sensor1"></td>
                     <td id="sensor1On/Off"></td>
+                    <td><i id="sensor1ParkOn" class="img-responsive"></i></td>
 
 
                 </tr>
                 <tr>
                     <td id="sensor2"></td>
                     <td id="sensor2On/Off"></td>
+                    <td><i id="sensor2ParkOn" class="img-responsive"></i></td>
                 </tr>
                 <tr>
                     <td id="sensor3"></td>
                     <td id="sensor3On/Off"></td>
+                    <td><i id="sensor3ParkOn" class="img-responsive"></i></td>
                 </tr>
                 <tr>
                     <td id="sensor4"></td>
                     <td id="sensor4On/Off"></td>
+                    <td><i id="sensor4ParkOn" class="img-responsive"></i></td>
                 </tr>
                 <tr>
                     <td id="sensor5"></td>
                     <td id="sensor5On/Off"></td>
+                    <td><i id="sensor5ParkOn" class="img-responsive"></i></td>
                 </tr>
             </table>
 
 
-            </script>
 
 
         </div>
 
     </div>
+
+
 </body>
 
 </html>
