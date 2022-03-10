@@ -66,6 +66,9 @@ router.get("/manager-dashboard", (req, res) =>{
     res.render("manager-dashboard");
 })
 
+router.get("/view-parking", (req, res) => {
+  res.render("view-parking");
+});
 router.get("/logout", (req, res) =>{
     req.session.destroy();
     res.redirect("/manager_login");
