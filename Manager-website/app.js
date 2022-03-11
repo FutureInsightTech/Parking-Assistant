@@ -56,14 +56,17 @@ app.set("view engine", "hbs");
 app.use("/", require("./routes/pages"));
 
 //fetching the aurth file
-
 app.use("/auth", require("./routes/auth"));
 
-//The is port number from which the server will rn
+
+// //The is port number from which the server will run and website will operate.
 app.listen(5000, () => {
   console.log("Node Server is running at port 5000");
 });
-//Below This Are Socket.io Communication Donot Change Anything Except port
+
+// ##### This part of the server will run th hardware and will display data from hardware to the website.  ####
+
+// //Below This Are Socket.io Communication Donot Change Anything Except port
 var http = require("http");
 var fs = require("fs");
 var index = fs.readFileSync("./views/view-parking.hbs");
@@ -95,4 +98,7 @@ parser.on("data", function (data) {
   console.log("Received data from port: " + data);
   io.emit("data", data);
 });
-app.listen(3000);
+//THis will be port number through which the derever for hardware will be Listening.
+app.listen(3000,() => {
+  console.log("The server for the hardware is working on port 3000");
+});
