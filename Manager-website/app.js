@@ -85,7 +85,7 @@ const parser = port.pipe(new ReadlineParser({ delimiter: "\r\n" }));
 port.pipe(parser);
 
 parser.on("data", function (data) {
-  console.log(data);
+  // console.log(data);
 });
 var app = http.createServer(function (req, res) {
   res.writeHead(200, { "Content-Type": "text/html" });
