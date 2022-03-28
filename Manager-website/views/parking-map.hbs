@@ -1,30 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Manager Dashboard</title>
-    <!-- Layout styles -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{{!-- The Link for CSS and bootstrap styles--}}
     <link rel="stylesheet" href="/dashboard-style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
     <!-- Scripts -->
     <link rel="shortcut icon" href="#" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"
         integrity="sha512-MgkNs0gNdrnOM7k+0L+wgiRc5aLgl74sJQKbIWegVIMvVGPc1+gc1L2oK9Wf/D9pq58eqIJAxOonYPVE5UwUFA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="./SensorOnOff.js"></script>
-
+    <style>
+        #btn {
+            width: 200px;
+            padding: 15px 0;
+            text-align: center;
+            margin: 20px 10px;
+            border-radius: 25px;
+            font-weight: bold;
+            border: 2px solid white;
+            background: transparent;
+            color: #fff;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            color: white;
+            font-weight: bold;
+            float: left;
+        }
+        #btn:hover {
+            border-color: black; ;
+            color: white;
+            text-color: white;
+        }
+    </style>
+    <title>View  Parking Map </title>
 </head>
-
 <body>
-    <div class="container-scroller">
-        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+     <div class="container-scroller">
+          <nav class="sidebar sidebar-offcanvas" id="sidebar">
             {{!-- For Logo Visibility --}}
             {{!-- <div
                 class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
@@ -90,7 +112,8 @@
                     <a class="nav-link" data-toggle="collapse" href="/parking-map" aria-expanded="false"
                         aria-controls="ui-basic">
                         <span class="menu-icon">
-                            <i class="bi-map"></i>
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                            {{!-- <i class="bi-map"></i> --}}
                             {{!-- <i class="bi-map"></i> --}}
                         </span>
                         <span class="menu-title">Parking Map Display</span>
@@ -124,63 +147,52 @@
                     </ul>
                 </div>
             </nav>
-            <div class="main-panel">
+        <div class="main-panel">
                 <div class="content-wrapper">
                     <div class="row">
                         <div class="col-md-12 grid-margin stretch-card">
                             <div class="card">
                                 <div class="card-body">
                                     <div class="d-flex flex-row justify-content-between">
-                                        <h4 class="card-title mb-1">Live Parking Locations</h4>
+                                        <h4 class="card-title mb-1">View Parking Lot Map</h4>
                                     </div>
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="preview-list">
-                                                <table style="width:100%">
-                                                    <tr>
-                                                        <th>Sensors</th>
-                                                        <th>On/Off</th>
-                                                        <th>Parking Slot</th>
-                                                        <th>Availability</th>
+                                                <br>
+                                                <div class="d-flex flex-row justify-content-between">
+                                                    <h4 class="card-title mb-1">Enter Rows and Columns</h4>
+                                                </div>
+                                                <div>
+                                                    <button id="btn">Enter the Values</button>
+                                                    <br>
+                                                    <br>
+                                                    <table id="myTable" class="table table-hover table-dark table-borderless"> 
+                                                    </table>
+                                                    <script>
+                                                         function tablegenerator() {
+                                                                const rn = window.prompt("Enter the number of rows: ");
+                                                                const cn = window.prompt("Enter the number of columns:")
+                                                                    
+                                                                for(var r=0;r<parseInt(rn,10);r++)
+                                                                {
+                                                                    var x=document.getElementById('myTable').insertRow(r);
+                                                                    for(var c=0;c<parseInt(cn,10);c++)  
+                                                                        {
+                                                                            var y=  x.insertCell(c);
+                                                                            y.innerHTML = '<i class="fas fa-parking fa-2x"></i>'
+                                                                            //'<i class="fa-light fa-circle-parking"></i>'
+                                                                        }
+                                                                }
 
-                                                    </tr>
-                                                    <tr>
-                                                        <td id="sensor1"></td>
-                                                        <td id="sensor1On/Off"></td>
-                                                        <td><i id="sensor1ParkOn" class="img-responsive"></i></td>
-                                                        <td id="sensor1availability"></td>
-
-
-                                                    </tr>
-                                                    <tr>
-                                                        <td id="sensor2"></td>
-                                                        <td id="sensor2On/Off"></td>
-                                                        <td><i id="sensor2ParkOn" class="img-responsive"></i></td>
-                                                        <td id="sensor2availability"></td>
-
-                                                    </tr>
-                                                    <tr>
-                                                        <td id="sensor3"></td>
-                                                        <td id="sensor3On/Off"></td>
-                                                        <td><i id="sensor3ParkOn" class="img-responsive"></i></td>
-                                                        <td id="sensor3availability"></td>
-
-                                                    </tr>
-                                                    <tr>
-                                                        <td id="sensor4"></td>
-                                                        <td id="sensor4On/Off"></td>
-                                                        <td><i id="sensor4ParkOn" class="img-responsive"></i></td>
-                                                        <td id="sensor4availability"></td>
-
-                                                    </tr>
-                                                    <tr>
-                                                        <td id="sensor5"></td>
-                                                        <td id="sensor5On/Off"></td>
-                                                        <td><i id="sensor5ParkOn" class="img-responsive"></i></td>
-                                                        <td id="sensor5availability"></td>
-
-                                                    </tr>
-                                                </table>
+                                                            }
+                                                            let btn = document.getElementById("btn");
+                                                                btn.addEventListener('click', event => {
+                                                                tablegenerator();
+                                                            });
+                                                        
+                                                    </script>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -190,10 +202,9 @@
                     </div>
 
                 </div>
-            </div>
-        </div>
-    </div>
+            </div>    
 
+        
+     </div>
 </body>
-
 </html>

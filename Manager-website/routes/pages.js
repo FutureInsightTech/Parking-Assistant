@@ -61,17 +61,24 @@ router.get("/service", (req, res) =>{
     res.render("service");
 });
 
+//thius will render the parking view page
+router.get("/parking-map", (req, res) =>{
+    res.render("parking-map");
+})
+
 //this will render the manager dashboard after login
 router.get("/manager-dashboard", (req, res) =>{
     res.render("manager-dashboard");
 })
-
+//this is for the view parking 
 router.get("/view-parking", (req, res) => {
   res.render("view-parking");
 });
+// this will for logout and destory session
 router.get("/logout", (req, res) =>{
     req.session.destroy();
     res.redirect("/manager_login");
 })
+
 
 module.exports = router;
