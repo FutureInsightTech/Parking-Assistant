@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 {{!-- The Link for CSS and bootstrap styles--}}
     <link rel="stylesheet" href="/dashboard-style.css">
+     <link rel="stylesheet" href="/dashboard-logo.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -47,18 +48,17 @@
 <body>
      <div class="container-scroller">
           <nav class="sidebar sidebar-offcanvas" id="sidebar">
-            {{!-- For Logo Visibility --}}
-            {{!-- <div
-                class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-                <a class="sidebar-brand brand-logo" href="index.html"><img src="/image/logo2.jpg" alt="logo" /></a>
-                <a class="sidebar-brand brand-logo-mini" href="index.html"><img src="/image/logo2.jpg" alt="logo" /></a>
-            </div> --}}
+              <div class="navbar-header">
+                    <a class="navbar-brand" href="#">
+                        <img  src="/image/logo2.jpg"class="logoimage">  
+                    </a>
+                </div>
             <ul class="nav">
                 <li class="nav-item nav-category">
                     <span class="nav-link">Navigation</span>
                 </li>
                 <li class="nav-item menu-items">
-                    <a class="nav-link" href="index.html">
+                    <a class="nav-link" href="/manager-dashboard">
                         <span class="menu-icon">
                             <i class="fa-solid fa-house-user"></i>
                         </span>
