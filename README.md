@@ -125,6 +125,11 @@ npm start
 - Once all all the command are enter the your application will run.
 - To see the progress just enter the “localhost:5000” on your browser.
 
+### Issue:
+1. Data is not being slow in the "view-update-delete-user-profile.hbs"
+2. New File is added a new user-managerment.js in the controller folder. 
+3. There is no error show but the code is not working
+
 
 # Contact Information:
 Author: Mohammad Abdul Rafay
