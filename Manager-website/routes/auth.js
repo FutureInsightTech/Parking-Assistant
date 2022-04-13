@@ -27,6 +27,13 @@ router.post("/suggestion",suggestionController.register);
 //Redirecting to the login controllerfor the manager and for the user.
 //router.post("/manager_login",managerloginController.managerlogin);
 router.post("/manager_login",managerloginController.register);
+
+//redirecting to the usermanagerment curd oprations
+const usermanagementController = require("../controllers/user-management-curd")
+
+//this will redirect the user manager controller in the controller folder
+router.get("/view-update-delete-user-profile",usermanagementController.view);
+
 //Exporting this module to run
 module.exports = router;
    
