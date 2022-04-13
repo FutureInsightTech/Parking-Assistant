@@ -27,7 +27,7 @@ const db = mysql.createConnection({
 });
 
 //Check if the data base is connected or not if not then eror will be shod on the terminal
-db.connect( (error) => {
+db.connect( (error, connection) => {
     if(error){
         console.log(error);
     }

@@ -59,14 +59,14 @@ app.use("/", require("./routes/pages"));
 app.use("/auth", require("./routes/auth"));
 
 
-// //The is port number from which the server will run and website will operate.
+//The is port number from which the server will run and website will operate.
 app.listen(5000, () => {
   console.log("Node Server is running at port 5000");
 });
 
 // ##### This part of the server will run th hardware and will display data from hardware to the website.  ####
 
-// //Below This Are Socket.io Communication Donot Change Anything Except port
+//Below This Are Socket.io Communication Donot Change Anything Except port
 var http = require("http");
 var fs = require("fs");
 var index = fs.readFileSync("./views/view-parking.hbs");

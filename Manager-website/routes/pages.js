@@ -74,7 +74,23 @@ router.get("/manager-dashboard", (req, res) =>{
 router.get("/view-parking", (req, res) => {
   res.render("view-parking");
 });
-// this will for logout and destory session
+//this is for the render of the set parking rate by the admin side
+router.get("/set-parking-rate", (req, res) => {
+    res.render("set-parking-rate");
+})
+//THis will render the page called the view delete and update user profile from the databases
+router.get("/view-update-delete-user-profile", (req, res) => {
+    res.render("view-update-delete-user-profile");
+})
+//this will render the view suggestion page and the admin can see all of the data from the database.
+router.get("/view-suggestions", (req, res) => {
+    res.render("view-suggestions");    
+})
+//this will render that page that will dislayed the vreserved parking spot.
+router.get("/view-user-reserved", (req, res)=> {
+    res.render("view-user-reserved");    
+})
+// this will for logout and destory session for the admin 
 router.get("/logout", (req, res) =>{
     req.session.destroy();
     res.redirect("/manager_login");
