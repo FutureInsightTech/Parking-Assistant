@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-{{!-- The Link for CSS and bootstrap styles--}}
+    {{!-- The Link for CSS and bootstrap styles--}}
     <link rel="stylesheet" href="/dashboard-style.css">
-     <link rel="stylesheet" href="/dashboard-logo.css">
+    <link rel="stylesheet" href="/dashboard-logo.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -19,6 +20,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"
         integrity="sha512-MgkNs0gNdrnOM7k+0L+wgiRc5aLgl74sJQKbIWegVIMvVGPc1+gc1L2oK9Wf/D9pq58eqIJAxOonYPVE5UwUFA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+    <script type="module" src="js/maps.js"></script>
     <style>
         #btn {
             width: 200px;
@@ -37,22 +41,65 @@
             font-weight: bold;
             float: left;
         }
+
         #btn:hover {
-            border-color: black; ;
+            border-color: black;
+            ;
             color: white;
             text-color: white;
         }
+
+
+        #map {
+            height: 100%;
+        }
+
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .custom-map-control-button {
+            background-color: #fff;
+            border: 0;
+            border-radius: 2px;
+            box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3);
+            margin: 10px;
+            padding: 0 0.5em;
+            font: 400 18px Roboto, Arial, sans-serif;
+            overflow: hidden;
+            height: 40px;
+            cursor: pointer;
+        }
+
+        .custom-map-control-button:hover {
+            background: rgb(235, 235, 235);
+        }
+
+        .gm-style .gm-style-iw-c {
+            background-color: black;
+            color: #fff;
+        }
+
+        .card .card-body {
+            height: 1000px;
+        }
     </style>
-    <title>View  Parking Map </title>
+
+    <title>View Parking Map </title>
 </head>
+
 <body>
-     <div class="container-scroller">
-          <nav class="sidebar sidebar-offcanvas" id="sidebar">
-              <div class="navbar-header">
-                    <a class="navbar-brand" href="#">
-                        <img  src="/image/logo2.jpg"class="logoimage">  
-                    </a>
-                </div>
+    <div class="container-scroller">
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                    <img src="/image/logo2.jpg" class="logoimage">
+                </a>
+            </div>
             <ul class="nav">
                 <li class="nav-item nav-category">
                     <span class="nav-link">Navigation</span>
@@ -147,7 +194,7 @@
                     </ul>
                 </div>
             </nav>
-        <div class="main-panel">
+            {{!-- <div class="main-panel">
                 <div class="content-wrapper">
                     <div class="row">
                         <div class="col-md-12 grid-margin stretch-card">
@@ -167,30 +214,29 @@
                                                     <button id="btn">Enter the Values</button>
                                                     <br>
                                                     <br>
-                                                    <table id="myTable" class="table table-hover table-dark table-borderless"> 
+                                                    <table id="myTable"
+                                                        class="table table-hover table-dark table-borderless">
                                                     </table>
                                                     <script>
-                                                         function tablegenerator() {
-                                                                const rn = window.prompt("Enter the number of rows: ");
-                                                                const cn = window.prompt("Enter the number of columns:")
-                                                                    
-                                                                for(var r=0;r<parseInt(rn,10);r++)
-                                                                {
-                                                                    var x=document.getElementById('myTable').insertRow(r);
-                                                                    for(var c=0;c<parseInt(cn,10);c++)  
-                                                                        {
-                                                                            var y=  x.insertCell(c);
-                                                                            y.innerHTML = '<i class="fas fa-parking fa-2x"></i>'
-                                                                            //'<i class="fa-light fa-circle-parking"></i>'
-                                                                        }
-                                                                }
+                                                        function tablegenerator() {
+                                                            const rn = window.prompt("Enter the number of rows: ");
+                                                            const cn = window.prompt("Enter the number of columns:")
 
+                                                            for (var r = 0; r < parseInt(rn, 10); r++) {
+                                                                var x = document.getElementById('myTable').insertRow(r);
+                                                                for (var c = 0; c < parseInt(cn, 10); c++) {
+                                                                    var y = x.insertCell(c);
+                                                                    y.innerHTML = '<i class="fas fa-parking fa-2x"></i>'
+                                                                    //'<i class="fa-light fa-circle-parking"></i>'
+                                                                }
                                                             }
-                                                            let btn = document.getElementById("btn");
-                                                                btn.addEventListener('click', event => {
-                                                                tablegenerator();
-                                                            });
-                                                        
+
+                                                        }
+                                                        let btn = document.getElementById("btn");
+                                                        btn.addEventListener('click', event => {
+                                                            tablegenerator();
+                                                        });
+
                                                     </script>
                                                 </div>
                                             </div>
@@ -202,9 +248,34 @@
                     </div>
 
                 </div>
-            </div>    
+            </div>
 
-        
-     </div>
+
+        </div> --}}
+        <div class="main-panel">
+            <div class="content-wrapper">
+                <div class="row">
+                    <div class="col-md-12 grid-margin stretch-card">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex flex-row justify-content-between">
+                                    <h4 class="card-title mb-1">View Parking Lot Map</h4>
+                                </div>
+                                <div id="map"></div>
+                                {{!-- For Development Purpose Only --}}
+                                <script
+                                    src="https://maps.googleapis.com/maps/api/js?sensor=false&callback=initMap&v=weekly"
+                                    defer></script>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
 </body>
+
 </html>
