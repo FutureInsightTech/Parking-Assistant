@@ -5,6 +5,7 @@ function initMap() {
     center: { lat: 30.0, lng: 70.0 },
     zoom: 6,
   });
+
   infoWindow = new google.maps.InfoWindow();
 
   const locationButton = document.createElement("button");
