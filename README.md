@@ -38,6 +38,82 @@ Once all the hardware is here then assemble the hardware, Connect the IR sensor 
 
 Then connect the USB type cable to the computer and load the code from the repo.
 
+**IR Sensor:**
+
+There are three pin in each sensor one is Ground, second is Power and the third one is Code line.
+
+On a Sensor there are three labels
+
+1. **GNN**
+    
+    GNN present ground line 
+    
+2. **OUT**
+    
+    OUT line present Code
+    
+3. **VCC**
+    
+    The VCC line Represent Power Line
+    
+
+**Color Code list for Sensors:**
+
+- **Sensor 1:**
+    
+    **Code Line Color:** Orange
+    
+    **Pot number**:  3
+    
+    **Power Color:**  White
+    
+    **Ground Color:** Green
+    
+- **Sensor 2**
+    
+    **Code Color Line:** Red
+    
+    **Port number:** 4
+    
+    **Power Color:**  White
+    
+    **Ground Color:** Green
+    
+- **Sensor 3:**
+    
+    **Code color:** Yellow color
+    
+    **Port Number:** 5
+    
+    **Ground:** Yellow
+    
+    **Power:** White:
+    
+    **Ground Color:** Green
+    
+- **Sensor 4:**
+    
+    **Code color:** Blue
+    
+    **Port number:** 7
+    
+    **Power Color:**  White
+    
+    **Ground color**: Purple
+    
+
+**Power For the Sensor:**
+
+In the UNO Board there are two power point, 3.5 Volt and 5 Volt Power. 
+
+The system is Powered by 5 Volt point.
+
+# Connection Hardware with Website:
+
+- The connection between website and the hardware is done using the javascript. The problem with Arduino is that it can not connect to the website directly so we need a server and the server is designed in javascript, using a framework called **Node js.**
+- Using Node Js we are using two libraries 1.  [Socket.io](http://Socket.io) and  2. serialport
+- Using both Libraries  we can connect to the UNO board. The name of the file is called server.js, The server will run at the port of 3000.
+
 ## Required Software:
 
 To Install these Software you need to look the following articles:
