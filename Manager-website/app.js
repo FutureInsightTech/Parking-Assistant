@@ -58,12 +58,10 @@ app.use("/", require("./routes/pages"));
 //fetching the aurth file
 app.use("/auth", require("./routes/auth"));
 
-
 //The is port number from which the server will run and website will operate.
 app.listen(5000, () => {
   console.log("Node Server is running at port 5000");
 });
-
 // ##### This part of the server will run th hardware and will display data from hardware to the website.  ####
 
 //Below This Are Socket.io Communication Donot Change Anything Except port
@@ -74,7 +72,7 @@ var index = fs.readFileSync("./views/view-parking.hbs");
 const { SerialPort } = require("serialport");
 const { ReadlineParser } = require("@serialport/parser-readline");
 var port = new SerialPort({
-  path: "COM7", //Change This Port Only
+  path: "COM9", //Change This Port Only
   baudRate: 9600,
   dataBits: 8,
   parity: "none",
@@ -95,10 +93,10 @@ var app = http.createServer(function (req, res) {
 const io = require("socket.io")(app);
 
 parser.on("data", function (data) {
-  console.log("Received data from port: " + data);
+  // console.log("Received data from port: " + data);
   io.emit("data", data);
 });
 //THis will be port number through which the derever for hardware will be Listening.
-app.listen(3000,() => {
+app.listen(3000, () => {
   console.log("The server for the hardware is working on port 3000");
 });
