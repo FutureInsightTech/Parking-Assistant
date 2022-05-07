@@ -11,6 +11,7 @@
 const mysql = require("mysql");
 //This the env where the important passord and file will be kept
 const dotenv = require("dotenv");
+const router = require("../routes/pages");
 
 //Getting the .ev file
 dotenv.config({ path: "../.env" });
