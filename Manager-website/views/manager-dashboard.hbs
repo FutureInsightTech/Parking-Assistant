@@ -13,31 +13,41 @@
         integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- Scripts -->
     <link rel="shortcut icon" href="#" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"
         integrity="sha512-MgkNs0gNdrnOM7k+0L+wgiRc5aLgl74sJQKbIWegVIMvVGPc1+gc1L2oK9Wf/D9pq58eqIJAxOonYPVE5UwUFA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
     <script src="./SensorOnOff.js"></script>
 </head>
 
 <body>
     <div class="container-scroller">
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">
-                <img  src="/image/logo2.jpg"class="logoimage">  
-            </a>
-         </div>
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                    <img src="/image/logo2.jpg" class="logoimage">
+                </a>
+            </div>
 
             <ul class="nav">
                 {{!-- <li class="nav-item dropdown">
                     <br>
                     <br>
-                    <img  src="/image/logo2.jpg"class="logoimage">  
+                    <img src="/image/logo2.jpg" class="logoimage">
                 </li> --}}
-                    
+
                 <li class="nav-item nav-category">
                     <span class="nav-link">Navigation</span>
                 </li>
@@ -108,7 +118,7 @@
         </nav>
         <div class="container-fluid page-body-wrapper">
             <nav class="navbar p-0 fixed-top d-flex flex-row">
-                <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">        
+                <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
                     <ul class="navbar-nav navbar-nav-right">
                         <li class="nav-item dropdown">
                             <a class="nav-link" href="/logout">
@@ -131,7 +141,19 @@
                                 <div class="card-body">
                                     <div class="d-flex flex-row justify-content-between">
                                         <h4 class="card-title mb-1">Live Parking Locations</h4>
+                                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                                            data-target=".bd-example-modal-lg">Compact View</button>
+
+                                        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+                                            aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-lg">
+                                                <div class="modal-content">
+                                                    {{!-- Table Data --}}
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
+
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="preview-list">
