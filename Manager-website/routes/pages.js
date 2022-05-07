@@ -10,6 +10,7 @@
 
 //Express is used to start the node server
 const express = require("express");
+var con = require("../database/connection");
 
 //getting the router for the webpages.
 const router = express.Router();
@@ -17,6 +18,17 @@ const UserDataViewController = require("../controllers/user-management-curd");
 
 // Routes
 router.get("/view-update-delete-user-profile", UserDataViewController.view);
+//Record Deleted
+router.get("/view-update-delete-user-profile/delete/:id", function (req, res) {
+  var id = req.params.id;
+  var sql = `DELETE FROM user WHERE id=${id}`;
+
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("record deleted!");
+    res.redirect("/view-update-delete-user-profile");
+  });
+});
 
 //KEY Points
 // The Default Directory for handle Bars is the View Directory
