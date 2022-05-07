@@ -20,24 +20,25 @@
         integrity="sha512-MgkNs0gNdrnOM7k+0L+wgiRc5aLgl74sJQKbIWegVIMvVGPc1+gc1L2oK9Wf/D9pq58eqIJAxOonYPVE5UwUFA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="./SensorOnOff.js"></script>
+
 </head>
 
 <body>
     <div class="container-scroller">
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">
-                <img  src="/image/logo2.jpg"class="logoimage">  
-            </a>
-         </div>
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                    <img src="/image/logo2.jpg" class="logoimage">
+                </a>
+            </div>
 
             <ul class="nav">
                 {{!-- <li class="nav-item dropdown">
                     <br>
                     <br>
-                    <img  src="/image/logo2.jpg"class="logoimage">  
+                    <img src="/image/logo2.jpg" class="logoimage">
                 </li> --}}
-                    
+
                 <li class="nav-item nav-category">
                     <span class="nav-link">Navigation</span>
                 </li>
@@ -108,7 +109,7 @@
         </nav>
         <div class="container-fluid page-body-wrapper">
             <nav class="navbar p-0 fixed-top d-flex flex-row">
-                <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">        
+                <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
                     <ul class="navbar-nav navbar-nav-right">
                         <li class="nav-item dropdown">
                             <a class="nav-link" href="/logout">
@@ -131,7 +132,9 @@
                                 <div class="card-body">
                                     <div class="d-flex flex-row justify-content-between">
                                         <h4 class="card-title mb-1">Live Parking Locations</h4>
+
                                     </div>
+
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="preview-list">
@@ -141,6 +144,125 @@
                                                         <th>On/Off</th>
                                                         <th>Parking Slot</th>
                                                         <th>Availability</th>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <i id="sensor1ParkOnEmptyImage" style="margin-bottom:20px;"></i>
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <i id="sensor2ParkOnEmptyImage" width="50px" height="50px"
+                                                            style="margin-bottom:20px;"></i>
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <i id="sensor3ParkOnEmptyImage" width="50px" height="50px"
+                                                            style="margin-bottom:20px;"></i>
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <i id="sensor4ParkOnEmptyImage" width="50px" height="50px"
+                                                            style="margin-bottom:20px;"></i>
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <i id="sensor5ParkOnEmptyImage" width="50px" height="50px"
+                                                            style="margin-bottom:20px;"></i>
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+
 
                                                     </tr>
                                                     <tr>
