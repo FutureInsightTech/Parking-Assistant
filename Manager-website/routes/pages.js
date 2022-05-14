@@ -102,6 +102,10 @@ router.get("/view-suggestions", (req, res) => {
 router.get("/view-user-reserved", (req, res) => {
   res.render("view-user-reserved");
 });
+//this will render the update-rate-parking_rate
+router.get("/update-rate", (req, res) => {
+  res.render("update-rate");
+});
 // this will for logout and destory session for the admin
 router.get("/logout", (req, res) => {
   req.session.destroy();

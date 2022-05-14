@@ -72,7 +72,7 @@ var index = fs.readFileSync("./views/view-parking.hbs");
 const { SerialPort } = require("serialport");
 const { ReadlineParser } = require("@serialport/parser-readline");
 var port = new SerialPort({
-  path: "COM9", //Change This Port Only
+  path: "COM4", //Change This Port Only
   baudRate: 9600,
   dataBits: 8,
   parity: "none",
