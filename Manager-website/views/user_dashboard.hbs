@@ -33,17 +33,11 @@
             </div>
 
             <ul class="nav">
-                {{!-- <li class="nav-item dropdown">
-                    <br>
-                    <br>
-                    <img src="/image/logo2.jpg" class="logoimage">
-                </li> --}}
-
                 <li class="nav-item nav-category">
                     <span class="nav-link">Navigation</span>
                 </li>
                 <li class="nav-item menu-items">
-                    <a class="nav-link" href="/manager-dashboard">
+                    <a class="nav-link" href="/user_dashboard">
                         <span class="menu-icon">
                             <i class="fa-solid fa-house-user"></i>
                         </span>
@@ -51,58 +45,31 @@
                     </a>
                 </li>
                 <li class="nav-item menu-items">
-                    <a class="nav-link" data-toggle="collapse" href="/add-user" aria-expanded="false"
+                    <a class="nav-link" data-toggle="collapse" href="/ViewProfile" aria-expanded="false"
                         aria-controls="ui-basic">
                         <span class="menu-icon">
                             <i class="fa-solid fa-user"></i>
                         </span>
-                        <span class="menu-title">Add User</span>
+                        <span class="menu-title">View Profile</span>
                     </a>
-
                 </li>
                 <li class="nav-item menu-items">
-                    <a class="nav-link" href="/set-parking-rate">
+                    <a class="nav-link" data-toggle="collapse" href="/reverseParking" aria-expanded="false"
+                        aria-controls="ui-basic">
                         <span class="menu-icon">
-                            <i class="fa-solid fa-money-bill-1"></i>
+                            <i class="fa-solid fa-parking"></i>
                         </span>
-                        <span class="menu-title">Set Parking Rate</span>
+                        <span class="menu-title">Reserver Parking Spot</span>
                     </a>
                 </li>
                 <li class="nav-item menu-items">
-                    <a class="nav-link" href="/view-update-delete-user-profile">
-                        <span class="menu-icon">
-                            <i class="fa-solid fa-id-badge"></i>
-                        </span>
-                        <span class="menu-title">View User Profile</span>
-                    </a>
-                </li>
-                <li class="nav-item menu-items">
-                    <a class="nav-link" href="/view-suggestions">
-                        <span class="menu-icon">
-                            <i class="fa-solid fa-address-book"></i>
-                        </span>
-                        <span class="menu-title">View Suggestion From Contact Page</span>
-                    </a>
-                </li>
-                <li class="nav-item menu-items">
-                    <a class="nav-link" href="/view-user-reserved">
-                        <span class="menu-icon">
-                            <i class="fa-solid fa-circle-check"></i>
-                        </span>
-                        <span class="menu-title">View user Reserved Parking location</span>
-                    </a>
-                </li>
-
-                <li class="nav-item menu-items">
-                    <a class="nav-link" data-toggle="collapse" href="/parking-map" aria-expanded="false"
+                    <a class="nav-link" data-toggle="collapse" href="/UserParkingMap" aria-expanded="false"
                         aria-controls="ui-basic">
                         <span class="menu-icon">
                             <i class="fa fa-map-marker" aria-hidden="true"></i>
-                            {{!-- <i class="bi-map"></i> --}}
                         </span>
                         <span class="menu-title">Parking Map Display</span>
                     </a>
-
                 </li>
 
             </ul>
@@ -112,7 +79,7 @@
                 <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
                     <ul class="navbar-nav navbar-nav-right">
                         <li class="nav-item dropdown">
-                            <a class="nav-link" href="/logout">
+                            <a class="nav-link" href="/userlogout">
                                 <div class="navbar-profile">
                                     <i class="fa-solid fa-arrow-right-from-bracket" style="color: red;"></i>
                                     <p class="mb-0 d-none d-sm-block navbar-profile-name">Logout</p>
@@ -146,7 +113,6 @@
                                                         <th>Availability</th>
 
                                                     </tr>
-                                                        &nbsp;<h3>Parking Map</h3>
                                                     <tr>
                                                         <img src="/image/empty.png" width="50px" height="50px"
                                                             style="margin-bottom:20px;">
@@ -266,8 +232,6 @@
 
 
                                                     </tr>
-                                                    <br>
-                                                    &nbsp;<h3>Sensor Detials</h3>
                                                     <tr>
                                                         <td id="sensor1"></td>
                                                         <td id="sensor1On/Off"></td>

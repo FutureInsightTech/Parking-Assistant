@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.1.3
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: May 07, 2022 at 11:21 AM
--- Server version: 8.0.27
--- PHP Version: 7.4.26
+-- Host: 127.0.0.1
+-- Generation Time: May 16, 2022 at 11:14 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 7.4.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -27,15 +27,13 @@ SET time_zone = "+00:00";
 -- Table structure for table `contact_page`
 --
 
-DROP TABLE IF EXISTS `contact_page`;
-CREATE TABLE IF NOT EXISTS `contact_page` (
-  `ID` int NOT NULL,
+CREATE TABLE `contact_page` (
+  `ID` int(50) NOT NULL,
   `Name` varchar(255) NOT NULL,
   `Email` varchar(255) NOT NULL,
   `Subject` varchar(255) NOT NULL,
-  `Message` varchar(255) NOT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `Message` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `contact_page`
@@ -53,13 +51,12 @@ INSERT INTO `contact_page` (`ID`, `Name`, `Email`, `Subject`, `Message`) VALUES
 -- Table structure for table `manager`
 --
 
-DROP TABLE IF EXISTS `manager`;
-CREATE TABLE IF NOT EXISTS `manager` (
+CREATE TABLE `manager` (
   `email` varchar(255) NOT NULL,
   `manager_name` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `manager_date_of_birth` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `manager`
@@ -71,16 +68,39 @@ INSERT INTO `manager` (`email`, `manager_name`, `password`, `manager_date_of_bir
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `parking_rate`
+--
+
+CREATE TABLE `parking_rate` (
+  `ID` int(255) NOT NULL,
+  `Parking_rate` int(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `parking_rate`
+--
+
+INSERT INTO `parking_rate` (`ID`, `Parking_rate`) VALUES
+(1, 0);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `reserved_parking`
 --
 
-DROP TABLE IF EXISTS `reserved_parking`;
-CREATE TABLE IF NOT EXISTS `reserved_parking` (
-  `reverse_ID` int NOT NULL,
-  `user_email` varchar(255) NOT NULL,
-  `start_time` datetime(6) NOT NULL,
-  `end_time` datetime(6) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `reserved_parking` (
+  `reverse_ID` int(255) NOT NULL,
+  `user_iD` varchar(255) NOT NULL,
+  `parking_location` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `reserved_parking`
+--
+
+INSERT INTO `reserved_parking` (`reverse_ID`, `user_iD`, `parking_location`) VALUES
+(1, '', 'Parking Spot A18');
 
 -- --------------------------------------------------------
 
@@ -88,24 +108,84 @@ CREATE TABLE IF NOT EXISTS `reserved_parking` (
 -- Table structure for table `user`
 --
 
-DROP TABLE IF EXISTS `user`;
-CREATE TABLE IF NOT EXISTS `user` (
+CREATE TABLE `user` (
   `user_email` varchar(255) NOT NULL,
   `user_name` varchar(255) NOT NULL,
   `user_date_of_birth` date NOT NULL,
   `user_password` varchar(255) NOT NULL,
-  `id` int NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `id` int(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`user_email`, `user_name`, `user_date_of_birth`, `user_password`, `id`) VALUES
-('moeez@gmail.com', 'Abdul Moeez', '2000-04-15', '$2a$08$q4HwwjyL/NMA16iJPkVSk.E4F3GoYj3k5vuo1goHKFVKvtwBs60D2', 1),
-('muqeet123@gmail.com', 'Abdul Muqeet', '2022-03-01', '123456', 2),
-('saif1234@outlook.com', 'Saif Akhtar', '1998-09-01', '$2a$08$foFK0cB0.reV9d1WU7MC5.sM8Fp8OrlmvYsqTEB9So6D1yRRXIpZK', 3);
+('mike.ross123@gmail.com', 'Mike Ross', '2022-05-04', '$2a$08$TPkwEJ8vjaoHdjxHPak5be74WsaqcNxx6BO/26fWRXM9Y/Cr1A/36', 2),
+('moeez@gmail.com', 'Abdul Moeez', '2000-04-15', '$2a$08$q4HwwjyL/NMA16iJPkVSk.E4F3GoYj3k5vuo1goHKFVKvtwBs60D2', 3),
+('saif1234@outlook.com', 'Saif Akhtar', '1998-09-01', '$2a$08$foFK0cB0.reV9d1WU7MC5.sM8Fp8OrlmvYsqTEB9So6D1yRRXIpZK', 4);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `contact_page`
+--
+ALTER TABLE `contact_page`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `manager`
+--
+ALTER TABLE `manager`
+  ADD PRIMARY KEY (`email`);
+
+--
+-- Indexes for table `parking_rate`
+--
+ALTER TABLE `parking_rate`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `reserved_parking`
+--
+ALTER TABLE `reserved_parking`
+  ADD PRIMARY KEY (`reverse_ID`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `contact_page`
+--
+ALTER TABLE `contact_page`
+  MODIFY `ID` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `parking_rate`
+--
+ALTER TABLE `parking_rate`
+  MODIFY `ID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `reserved_parking`
+--
+ALTER TABLE `reserved_parking`
+  MODIFY `reverse_ID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
