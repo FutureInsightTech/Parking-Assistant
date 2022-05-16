@@ -105,7 +105,7 @@
                     <span class="nav-link">Navigation</span>
                 </li>
                 <li class="nav-item menu-items">
-                    <a class="nav-link" href="/manager-dashboard">
+                    <a class="nav-link" href="/user_dashboard">
                         <span class="menu-icon">
                             <i class="fa-solid fa-house-user"></i>
                         </span>
@@ -113,74 +113,38 @@
                     </a>
                 </li>
                 <li class="nav-item menu-items">
-                    <a class="nav-link" data-toggle="collapse" href="/add-user" aria-expanded="false"
+                    <a class="nav-link" data-toggle="collapse" href="/ViewProfile" aria-expanded="false"
                         aria-controls="ui-basic">
                         <span class="menu-icon">
                             <i class="fa-solid fa-user"></i>
                         </span>
-                        <span class="menu-title">Add User</span>
-                    </a>
-
-                </li>
-                <li class="nav-item menu-items">
-                    <a class="nav-link" href="/set-parking-rate">
-                        <span class="menu-icon">
-                            <i class="fa-solid fa-money-bill-1"></i>
-                        </span>
-                        <span class="menu-title">Set Parking Rate</span>
+                        <span class="menu-title">View Profile</span>
                     </a>
                 </li>
                 <li class="nav-item menu-items">
-                    <a class="nav-link" href="/view-update-delete-user-profile">
+                    <a class="nav-link" data-toggle="collapse" href="/reverseParking" aria-expanded="false"
+                        aria-controls="ui-basic">
                         <span class="menu-icon">
-                            <i class="fa-solid fa-id-badge"></i>
+                            <i class="fa-solid fa-parking"></i>
                         </span>
-                        <span class="menu-title">View User Profile</span>
+                        <span class="menu-title">Reserver Parking Spot</span>
                     </a>
                 </li>
-                <li class="nav-item menu-items">
-                    <a class="nav-link" href="/view-suggestions">
-                        <span class="menu-icon">
-                            <i class="fa-solid fa-address-book"></i>
-                        </span>
-                        <span class="menu-title">View Suggestion From Contact Page</span>
-                    </a>
-                </li>
-                <li class="nav-item menu-items">
-                    <a class="nav-link" href="/view-user-reserved">
-                        <span class="menu-icon">
-                            <i class="fa-solid fa-circle-check"></i>
-                        </span>
-                        <span class="menu-title">View user Reserved Parking location</span>
-                    </a>
-                </li>
-
                 <li class="nav-item menu-items">
                     <a class="nav-link" data-toggle="collapse" href="/parking-map" aria-expanded="false"
                         aria-controls="ui-basic">
                         <span class="menu-icon">
                             <i class="fa fa-map-marker" aria-hidden="true"></i>
-                            {{!-- <i class="bi-map"></i> --}}
-                            {{!-- <i class="bi-map"></i> --}}
                         </span>
                         <span class="menu-title">Parking Map Display</span>
                     </a>
-
                 </li>
 
             </ul>
         </nav>
         <div class="container-fluid page-body-wrapper">
             <nav class="navbar p-0 fixed-top d-flex flex-row">
-                {{!-- <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
-                    <a class="navbar-brand brand-logo-mini" href="index.html"><img src="#" alt="logo" /></a>
-                </div> --}}
                 <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
-                    {{!-- <button class="navbar-toggler navbar-toggler align-self-center" type="button"
-                        data-toggle="minimize">
-                        <i class="fa-solid fa-bars"></i>
-                    </button> --}}
-
                     <ul class="navbar-nav navbar-nav-right">
                         <li class="nav-item dropdown">
                             <a class="nav-link" href="/logout">

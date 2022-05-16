@@ -20,6 +20,9 @@ const managerloginController = require("../controllers/managerlogin")
 const reservationRate = require("../controllers/rent_rate")
 //CALLING UPDATE rent.
 const updateRentRate = require("../controllers/update_rate")
+//getting the user login controller from controller page
+const userlogin = require("../controllers/userlogin")
+
 //getting the router for the webpages.
 const router = express.Router();
 //Redirecting to the controller in there add user account
@@ -38,10 +41,14 @@ const usermanagementController = require("../controllers/user-management-curd")
 
 //this will redirect the user manager controller in the controller folder
 router.get("/view-update-delete-user-profile",usermanagementController.view);
-
+//View Suggestions in the suggestion pages
 const suggestion_view = require("../controllers/suggestion_view")
 router.get("/view-suggestions",suggestion_view.view);
 
+
+//User Section: 
+//This will redirect to the user login controller
+router.post("/user-login",userlogin.register);
 
 //Exporting this module to run
 module.exports = router;

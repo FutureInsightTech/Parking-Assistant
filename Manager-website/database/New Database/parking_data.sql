@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 16, 2022 at 09:37 AM
+-- Generation Time: May 16, 2022 at 06:35 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.28
 
@@ -106,18 +106,37 @@ CREATE TABLE `user` (
   `user_email` varchar(255) NOT NULL,
   `user_name` varchar(255) NOT NULL,
   `user_date_of_birth` date NOT NULL,
-  `user_password` varchar(255) NOT NULL,
-  `id` int(255) NOT NULL
+  `user_password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`user_email`, `user_name`, `user_date_of_birth`, `user_password`, `id`) VALUES
-('mike.ross123@gmail.com', 'Mike Ross', '2022-05-04', '$2a$08$TPkwEJ8vjaoHdjxHPak5be74WsaqcNxx6BO/26fWRXM9Y/Cr1A/36', 2),
-('moeez@gmail.com', 'Abdul Moeez', '2000-04-15', '$2a$08$q4HwwjyL/NMA16iJPkVSk.E4F3GoYj3k5vuo1goHKFVKvtwBs60D2', 3),
-('saif1234@outlook.com', 'Saif Akhtar', '1998-09-01', '$2a$08$foFK0cB0.reV9d1WU7MC5.sM8Fp8OrlmvYsqTEB9So6D1yRRXIpZK', 4);
+INSERT INTO `user` (`user_email`, `user_name`, `user_date_of_birth`, `user_password`) VALUES
+('adipiscing.lobortis.risus@protonmail.com', 'Cailin Trevino', '0000-00-00', '8985'),
+('consectetuer@aol.com', 'Briar Christian', '0000-00-00', '9287'),
+('elit.sed.consequat@google.com', 'Kuame Dixon', '0000-00-00', '4104'),
+('erat@hotmail.couk', 'Preston Riddle', '0000-00-00', '8378'),
+('et.commodo.at@aol.couk', 'Barry Rivas', '0000-00-00', '2851'),
+('eu.odio.tristique@outlook.com', 'Cally Huff', '0000-00-00', '7811'),
+('eu.odio@outlook.net', 'Diana Valenzuela', '2005-06-21', '7401'),
+('eu@protonmail.edu', 'Henry Miller', '2001-06-23', '3233'),
+('felis.donec@aol.edu', 'Jesse Contreras', '0000-00-00', '8920'),
+('interdum.curabitur.dictum@aol.net', 'Miriam Moreno', '0000-00-00', '9215'),
+('luctus.sit@icloud.org', 'Gareth Meyers', '0000-00-00', '7003'),
+('moeez@gmail.com', 'Abdul Moeez', '2000-04-15', '$2a$08$q4HwwjyL/NMA16iJPkVSk.E4F3GoYj3k5vuo1goHKFVKvtwBs60D2'),
+('muqeet123@gmail.com', 'Abdul Muqeet', '2022-03-01', '123456'),
+('nunc.mauris@yahoo.edu', 'Amela Booker', '2005-04-21', '5352'),
+('nunc.ullamcorper@yahoo.couk', 'Sara Holmes', '2010-02-21', '4040'),
+('pede.ultrices.a@outlook.com', 'Jane Bradley', '0000-00-00', '4803'),
+('porttitor.vulputate.posuere@hotmail.couk', 'Amir Kelly', '0000-00-00', '7844'),
+('sagittis@aol.com', 'Melyssa Shepard', '2007-04-21', '6633'),
+('saif1234@outlook.com', 'Saif Akhtar', '1998-09-01', '$2a$08$foFK0cB0.reV9d1WU7MC5.sM8Fp8OrlmvYsqTEB9So6D1yRRXIpZK'),
+('sapien.imperdiet.ornare@icloud.net', 'Ralph Pennington', '2003-12-23', '7987'),
+('sed.eu@hotmail.edu', 'Kirk Byers', '2001-02-23', '7916'),
+('suspendisse.ac@hotmail.net', 'Quemby Gates', '0000-00-00', '7494'),
+('venenatis.vel.faucibus@yahoo.edu', 'Trevor May', '2008-05-21', '4305');
 
 --
 -- Indexes for dumped tables
@@ -151,7 +170,7 @@ ALTER TABLE `reserved_parking`
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`user_email`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -174,12 +193,6 @@ ALTER TABLE `parking_rate`
 --
 ALTER TABLE `reserved_parking`
   MODIFY `reverse_ID` int(255) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `user`
---
-ALTER TABLE `user`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

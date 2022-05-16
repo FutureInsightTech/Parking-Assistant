@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Manager Dashboard</title>
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="/dashboard-style.css">
+    <link rel="stylesheet" href="/dashboard-logo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+    <!-- Scripts -->
+    <link rel="shortcut icon" href="#" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"
+        integrity="sha512-MgkNs0gNdrnOM7k+0L+wgiRc5aLgl74sJQKbIWegVIMvVGPc1+gc1L2oK9Wf/D9pq58eqIJAxOonYPVE5UwUFA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./SensorOnOff.js"></script>
+
+</head>
+
+<body>
+    <div class="container-scroller">
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                    <img src="/image/logo2.jpg" class="logoimage">
+                </a>
+            </div>
+
+            <ul class="nav">
+                {{!-- <li class="nav-item dropdown">
+                    <br>
+                    <br>
+                    <img src="/image/logo2.jpg" class="logoimage">
+                </li> --}}
+
+                <li class="nav-item nav-category">
+                    <span class="nav-link">Navigation</span>
+                </li>
+                <li class="nav-item menu-items">
+                    <a class="nav-link" href="/user_dashboard">
+                        <span class="menu-icon">
+                            <i class="fa-solid fa-house-user"></i>
+                        </span>
+                        <span class="menu-title">Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item menu-items">
+                    <a class="nav-link" data-toggle="collapse" href="/ViewProfile" aria-expanded="false"
+                        aria-controls="ui-basic">
+                        <span class="menu-icon">
+                            <i class="fa-solid fa-user"></i>
+                        </span>
+                        <span class="menu-title">View Profile</span>
+                    </a>
+                </li>
+                <li class="nav-item menu-items">
+                    <a class="nav-link" data-toggle="collapse" href="/reverseParking" aria-expanded="false"
+                        aria-controls="ui-basic">
+                        <span class="menu-icon">
+                            <i class="fa-solid fa-parking"></i>
+                        </span>
+                        <span class="menu-title">Reserver Parking Spot</span>
+                    </a>
+                </li>
+                <li class="nav-item menu-items">
+                    <a class="nav-link" data-toggle="collapse" href="/UserParkingMap" aria-expanded="false"
+                        aria-controls="ui-basic">
+                        <span class="menu-icon">
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                        </span>
+                        <span class="menu-title">Parking Map Display</span>
+                    </a>
+                </li>
+
+            </ul>
+        </nav>
+        <div class="container-fluid page-body-wrapper">
+            <nav class="navbar p-0 fixed-top d-flex flex-row">
+                <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
+                    <ul class="navbar-nav navbar-nav-right">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="/userlogout">
+                                <div class="navbar-profile">
+                                    <i class="fa-solid fa-arrow-right-from-bracket" style="color: red;"></i>
+                                    <p class="mb-0 d-none d-sm-block navbar-profile-name">Logout</p>
+                                    <i class="mdi mdi-menu-down d-none d-sm-block"></i>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <br>
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    <div class="row">
+                        <div class="col-md-12 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex flex-row justify-content-between">
+                                        <h4 class="card-title mb-1">Live Parking Locations</h4>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="preview-list">
+                                                <table style="width:100%">
+                                                    <tr>
+                                                        <th>Sensors</th>
+                                                        <th>On/Off</th>
+                                                        <th>Parking Slot</th>
+                                                        <th>Availability</th>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <i id="sensor1ParkOnEmptyImage" style="margin-bottom:20px;"></i>
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <i id="sensor2ParkOnEmptyImage" width="50px" height="50px"
+                                                            style="margin-bottom:20px;"></i>
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <i id="sensor3ParkOnEmptyImage" width="50px" height="50px"
+                                                            style="margin-bottom:20px;"></i>
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <i id="sensor4ParkOnEmptyImage" width="50px" height="50px"
+                                                            style="margin-bottom:20px;"></i>
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <i id="sensor5ParkOnEmptyImage" width="50px" height="50px"
+                                                            style="margin-bottom:20px;"></i>
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+                                                        <img src="/image/empty.png" width="50px" height="50px"
+                                                            style="margin-bottom:20px;">
+
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td id="sensor1"></td>
+                                                        <td id="sensor1On/Off"></td>
+                                                        <td><i id="sensor1ParkOn" class="img-responsive"></i></td>
+                                                        <td id="sensor1availability"></td>
+
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td id="sensor2"></td>
+                                                        <td id="sensor2On/Off"></td>
+                                                        <td><i id="sensor2ParkOn" class="img-responsive"></i></td>
+                                                        <td id="sensor2availability"></td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td id="sensor3"></td>
+                                                        <td id="sensor3On/Off"></td>
+                                                        <td><i id="sensor3ParkOn" class="img-responsive"></i></td>
+                                                        <td id="sensor3availability"></td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td id="sensor4"></td>
+                                                        <td id="sensor4On/Off"></td>
+                                                        <td><i id="sensor4ParkOn" class="img-responsive"></i></td>
+                                                        <td id="sensor4availability"></td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td id="sensor5"></td>
+                                                        <td id="sensor5On/Off"></td>
+                                                        <td><i id="sensor5ParkOn" class="img-responsive"></i></td>
+                                                        <td id="sensor5availability"></td>
+
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
