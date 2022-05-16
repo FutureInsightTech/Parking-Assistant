@@ -112,4 +112,33 @@ router.get("/logout", (req, res) => {
   res.redirect("/manager_login");
 });
 
+
+//User Side Pages render
+
+//this will renger the user login Pages
+router.get("/user-login",(req, res) => {
+  res.render("user-login");
+});
+//This will render the user dashboard
+router.get("/user_dashboard",(req, res) => {
+  res.render("user_dashboard");
+});
+//this will logout the user account.
+router.get("/userlogout",(req, res) => {
+  req.session.destroy();
+  res.redirect("/user-login");
+});
+//This wll router the  to the revere parking space
+router.get("/reverseParking",(req, res) => {
+  res.render("reverseParking");
+});
+//this will display userp parking map locationButton
+router.get("/UserParkingMap",(req, res) => {
+  res.render("UserParkingMap");
+});
+//this will render the view Profile:
+router.get("/ViewProfile",(req, res) => {
+  res.render("ViewProfile");
+})
+
 module.exports = router;
