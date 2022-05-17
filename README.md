@@ -160,6 +160,12 @@ Now The database is active to enter the admin panel you need to a username and p
 
 **Password:** 19march1999
 
+## Default User Useremil and Userpasswor:
+
+**Email:** mike.ross123@gmail.com
+
+**Password:** mikeross
+
 **Note:**
 
 if facing any problem then follow this guide:
