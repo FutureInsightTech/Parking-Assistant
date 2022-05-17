@@ -29,6 +29,16 @@ router.get("/view-update-delete-user-profile/delete/:id", function (req, res) {
     res.redirect("/view-update-delete-user-profile");
   });
 });
+
+// router.get('/view-update-delete-user-profile/edit-user/:id', function (req, res) {
+//   var id= req.params.id;
+//   con.query("UPDATE user SET ?",function (err,data) {
+//       if(error) throw err;
+//       console.log(data);
+//       console.log("Data is Updated");
+//       res.redirect("/view-update-delete-user-profile");
+//   }); 
+// });
 //KEY Points
 // The Default Directory for handle Bars is the View Directory
 // The Pages will be created in the view Folder
