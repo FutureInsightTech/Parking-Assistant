@@ -20,7 +20,8 @@ exports.register = (req, res, next) => {
       res.end();
       return;
     }
-    const isValid = await bcrypt.compare(password, results[0].password);
+     const isValid = await bcrypt.compare(password, results[0].user_password);
+    
     if (isValid) {
       res.redirect("/user_dashboard");
       console.log("The code is working untill this part");
