@@ -15,13 +15,14 @@ exports.register =(req,res) => {
 
     //values from the form will be getting here and from here to the variables.
     const reverse = req.body.reverse;
-
+    const start_time = req.body.start_time;
+    const end_time = req.body.end_time;
+    const user_email = req.body.user_email;
 
     //checking if there is an email that is already into the database.
     con.query("SELECT parking_location from reserved_parking WHERE parking_location  = ?", [reverse], (error,result) => {
         if(error){
             console.log(error);
-
         }
         if( result.length > 0 ){
             return res.render('reverseParking',{
@@ -30,8 +31,15 @@ exports.register =(req,res) => {
         }
 
         //Adding data into the Database
-        con.query("INSERT INTO reserved_parking SET ?", {parking_location:reverse}, (error, result) => {
+        con.query("INSERT INTO reserved_parking SET ?", 
+        {
+            parking_location: reverse,
+            start_time: start_time,
+            end_time: end_time,
+            user_email: user_email
+        },(error, result) => {
             if(error){
+                console.log(error);
                 console.log("error");
             }
             else{
