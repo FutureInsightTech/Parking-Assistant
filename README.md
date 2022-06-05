@@ -201,7 +201,7 @@ In order for the application to display live location using [Socket.Io](http://S
 
 ```jsx
 cd Website-Manager
-npm start
+node app.js
 ```
 
 - Once all all the command are enter the your application will run.
@@ -212,4 +212,5 @@ npm start
 
 # Contact Information:
 Author: Mohammad Abdul Rafay
+
 Email: 99marafay@gmail.com
