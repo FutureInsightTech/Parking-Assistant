@@ -29,7 +29,6 @@ let connection = mysql.createConnection({
 //this will render data for the suggestion pages
 exports.view = (req, res) => {
   connection.query("SELECT * FROM contact_page", (error, rows) => {
-    console.log("'This part is working...'");
     if(!error) 
     {
       res.render("view-suggestions",{rows});

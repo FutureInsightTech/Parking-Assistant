@@ -24,7 +24,6 @@ exports.register = (req, res, next) => {
     
     if (isValid) {
       res.redirect("/user_dashboard");
-      console.log("The code is working untill this part");
       res.end();
     } else {
     
