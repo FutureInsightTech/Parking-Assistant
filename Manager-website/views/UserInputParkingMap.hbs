@@ -149,8 +149,15 @@
                                         <div class="col-12">
                                             <div class="preview-list">
                                                 <h2 style="text-align:left">Parking Map</h2>
-                                               
+                                                <center>
+                                                    <input type="number" id='rows' placeholder="Enter rows"
+                                                        style="border-radius:20px;">
+                                                    <input type="number" id='cols' placeholder="Enter cols"
+                                                        style="border-radius:20px;">
+                                                    <button id='fetch' class="button-9">Create</button>
+                                                </center>
                                                 <div id='container'></div>
+
                                                 <table style="width:100%">
                                                     <tr>
                                                         <th>Sensors</th>
@@ -212,7 +219,29 @@
             </div>
         </div>
     </div>
-    
+    <script type="text/javascript">
+        document.getElementById('fetch').onclick = function () {
+            var rows = document.getElementById('rows').value
+            var cols = document.getElementById('cols').value
+            if (rows == "" || rows == null)
+                rows = 10
+            if (cols == "" || cols == null)
+                cols = 10
+            var output = '<table class="table">'
+            function createTable(rows, cols) {
+                for (var i = 1; i <= rows; i++) {
+                    output = output + '<tr>'
+                    for (var j = 1; j <= cols; j++) {
+                        output = output + '<td>' + "<i id='sensor" + j + "ParkOnEmptyImage' width=50px height=50px style='margin-bottom:20px;'></i> <br><br><br> <img src='/image/empty.png' width=50px height=50px style='margin-bottom:20px;'></img>" + '</td>'
+                    }
+                    output = output + '</tr>'
+                }
+                output = output + '</table>'
+                document.getElementById('container').innerHTML = output
+            }
+            createTable(rows, cols)
+        }
+    </script>
 </body>
 
 </html>
