@@ -2,10 +2,11 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Manager Dashboard</title>
+    <!-- Layout styles -->
     <link rel="stylesheet" href="/dashboard-style.css">
     <link rel="stylesheet" href="/dashboard-logo.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -18,8 +19,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"
         integrity="sha512-MgkNs0gNdrnOM7k+0L+wgiRc5aLgl74sJQKbIWegVIMvVGPc1+gc1L2oK9Wf/D9pq58eqIJAxOonYPVE5UwUFA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./SensorOnOff.js"></script>
 
-    <title>View user Profile Data</title>
 </head>
 
 <body>
@@ -32,6 +33,12 @@
             </div>
 
             <ul class="nav">
+                {{!-- <li class="nav-item dropdown">
+                    <br>
+                    <br>
+                    <img src="/image/logo2.jpg" class="logoimage">
+                </li> --}}
+
                 <li class="nav-item nav-category">
                     <span class="nav-link">Navigation</span>
                 </li>
@@ -134,46 +141,71 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="d-flex flex-row justify-content-between">
-                                        <h4 class="card-title mb-1">View User Profile</h4>
+                                        <h4 class="card-title mb-1">Live Parking Locations</h4>
+
                                     </div>
-                                    <br>
+
                                     <div class="row">
                                         <div class="col-12">
-                                            <div class="table-responsive fixed-table-body">
-                                                <table style="width:100%;" id="myTable",
-                                                    class="table table-hover table-dark " method="GET"
-                                                    action="/auth/view-update-delete-user-profile">
-                                                    <thead>
-                                                        <tr>
-                                                            <th scope="col">User Email</th>
-                                                            <th scope="col">User Name</th>
-                                                            <th scope="col">User Password</th>
-                                                            <th scope="col">User Date of Birth</th>
-                                                            <th scope="col">Operations</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        {{#each rows }}
-                                                        <tr>
-                                                            <th scope="row">{{this.user_email}}</th>
-                                                            <td scope="row">{{this.user_name}}</td>
-                                                            <td scope="row">{{this.user_password}}</td>
-                                                            <td scope="row">{{this.user_date_of_birth}}</td>
+                                            <div class="preview-list">
+                                                <h2 style="text-align:left">Parking Map</h2>
+                                                <center>
+                                                    <input type="number" id='rows' placeholder="Enter rows"
+                                                        style="border-radius:20px;">
+                                                    <input type="number" id='cols' placeholder="Enter cols"
+                                                        style="border-radius:20px;">
+                                                    <button id='fetch' class="button-9">Create</button>
+                                                </center>
+                                                <div id='container'></div>
 
-                                                            <td>
-                                                                <a href="/edit-user/{{this.id}}" type="button"
-                                                                    class="btn btn-loght btn-small"><i
-                                                                        class="fa fa-pencil"></i>Edit</a>
-                                                                <a href="/view-update-delete-user-profile/delete/{{this.id}}"
-                                                                    type="button" class="btn btn-loght btn-small"><i
-                                                                        class="fa fa-trash"></i>Delete </i></a>
-                                                            </td>
+                                                <table style="width:100%">
+                                                    <tr>
+                                                        <th>Sensors</th>
+                                                        <th>On/Off</th>
+                                                        <th>Parking Slot</th>
+                                                        <th>Availability</th>
+
+                                                    </tr>
+                                                    &nbsp;<h3>Parking Map</h3>
+
+                                                    <br>
+                                                    &nbsp;<h3>Sensor Details</h3>
+                                                    <tr>
+                                                        <td id="sensor1"></td>
+                                                        <td id="sensor1On/Off"></td>
+                                                        <td><i id="sensor1ParkOn" class="img-responsive"></i></td>
+                                                        <td id="sensor1availability"></td>
 
 
-                                                        </tr>
-                                                        {{/each}}
-                                                    </tbody>
-                                                </table>
+                                                    </tr>
+                                                    <tr>
+                                                        <td id="sensor2"></td>
+                                                        <td id="sensor2On/Off"></td>
+                                                        <td><i id="sensor2ParkOn" class="img-responsive"></i></td>
+                                                        <td id="sensor2availability"></td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td id="sensor3"></td>
+                                                        <td id="sensor3On/Off"></td>
+                                                        <td><i id="sensor3ParkOn" class="img-responsive"></i></td>
+                                                        <td id="sensor3availability"></td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td id="sensor4"></td>
+                                                        <td id="sensor4On/Off"></td>
+                                                        <td><i id="sensor4ParkOn" class="img-responsive"></i></td>
+                                                        <td id="sensor4availability"></td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td id="sensor5"></td>
+                                                        <td id="sensor5On/Off"></td>
+                                                        <td><i id="sensor5ParkOn" class="img-responsive"></i></td>
+                                                        <td id="sensor5availability"></td>
+
+                                                    </tr>
                                                 </table>
                                             </div>
                                         </div>
@@ -187,6 +219,29 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+        document.getElementById('fetch').onclick = function () {
+            var rows = document.getElementById('rows').value
+            var cols = document.getElementById('cols').value
+            if (rows == "" || rows == null)
+                rows = 10
+            if (cols == "" || cols == null)
+                cols = 10
+            var output = '<table class="table">'
+            function createTable(rows, cols) {
+                for (var i = 1; i <= rows; i++) {
+                    output = output + '<tr>'
+                    for (var j = 1; j <= cols; j++) {
+                        output = output + '<td>' + "<i id='sensor" + j + "ParkOnEmptyImage' width=50px height=50px style='margin-bottom:20px;'></i> <br><br><br> <img src='/image/empty.png' width=50px height=50px style='margin-bottom:20px;'></img>" + '</td>'
+                    }
+                    output = output + '</tr>'
+                }
+                output = output + '</table>'
+                document.getElementById('container').innerHTML = output
+            }
+            createTable(rows, cols)
+        }
+    </script>
 </body>
 
 </html>
