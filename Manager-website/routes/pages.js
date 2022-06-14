@@ -150,5 +150,9 @@ router.get("/UserParkingMap",(req, res) => {
 router.get("/ViewProfile",(req, res) => {
   res.render("ViewProfile");
 })
+//this will render the User Input Parking Display map:
+router.get("/DisplayUserParkingMap", (req, res) => {
+  res.render("DisplayUserParkingMap");
+});
 
 module.exports = router;
