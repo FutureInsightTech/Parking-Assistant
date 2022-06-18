@@ -20,6 +20,8 @@ function delete_data()
             rows.parking_spot = parking_spot;
             rows.start_time = start_time;
             rows.enend_time = end_time;
+            console.log(rows);
+            console.log("Getting Data and Storing Data into Variables");
           }
           else {
             console.log(error);

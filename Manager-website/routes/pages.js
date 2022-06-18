@@ -39,6 +39,8 @@ router.get("/view-update-delete-user-profile/delete/:id", function (req, res) {
 //       res.redirect("/view-update-delete-user-profile");
 //   }); 
 // });
+
+
 //KEY Points
 // The Default Directory for handle Bars is the View Directory
 // The Pages will be created in the view Folder
@@ -152,7 +154,7 @@ router.get("/ViewProfile",(req, res) => {
 })
 //this will render the User Input Parking Display map:
 router.get("/DisplayUserParkingMap", (req, res) => {
-  res.render("DisplayUserParkingMap");
+  res.render("UserInputParkingMap");
 });
 
 module.exports = router;
