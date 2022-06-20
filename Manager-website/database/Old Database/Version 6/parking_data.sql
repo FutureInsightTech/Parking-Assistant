@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 20, 2022 at 10:12 PM
+-- Generation Time: Jun 18, 2022 at 11:06 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -20,27 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `parking_data`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `Approval_Parking`
---
-
-CREATE TABLE `Approval_Parking` (
-  `Id` int(255) NOT NULL,
-  `user_email` varchar(255) NOT NULL,
-  `parking_location` varchar(255) NOT NULL,
-  `start_time` time NOT NULL,
-  `end_time` time NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `Approval_Parking`
---
-
-INSERT INTO `Approval_Parking` (`Id`, `user_email`, `parking_location`, `start_time`, `end_time`) VALUES
-(1, 'saif1234@outlook.com', 'Parking Spot A12', '00:13:00', '00:14:00');
 
 -- --------------------------------------------------------
 
@@ -124,8 +103,7 @@ CREATE TABLE `reserved_parking` (
 
 INSERT INTO `reserved_parking` (`reverse_ID`, `user_email`, `parking_location`, `start_time`, `end_time`) VALUES
 (1, '', 'Parking Spot A18', '00:00:00', '00:00:00'),
-(2, 'mike.ross123@gmail.com', 'Parking Spot A24', '23:55:00', '00:00:00'),
-(3, 'saif1234@outlook.com', 'Parking Spot A12', '23:04:00', '00:04:00');
+(2, 'mike.ross123@gmail.com', 'Parking Spot A24', '23:55:00', '00:00:00');
 
 -- --------------------------------------------------------
 
@@ -153,12 +131,6 @@ INSERT INTO `user` (`user_email`, `user_name`, `user_date_of_birth`, `user_passw
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `Approval_Parking`
---
-ALTER TABLE `Approval_Parking`
-  ADD PRIMARY KEY (`Id`);
 
 --
 -- Indexes for table `contact_page`
@@ -195,12 +167,6 @@ ALTER TABLE `user`
 --
 
 --
--- AUTO_INCREMENT for table `Approval_Parking`
---
-ALTER TABLE `Approval_Parking`
-  MODIFY `Id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
 -- AUTO_INCREMENT for table `contact_page`
 --
 ALTER TABLE `contact_page`
@@ -216,7 +182,7 @@ ALTER TABLE `parking_rate`
 -- AUTO_INCREMENT for table `reserved_parking`
 --
 ALTER TABLE `reserved_parking`
-  MODIFY `reverse_ID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `reverse_ID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user`
