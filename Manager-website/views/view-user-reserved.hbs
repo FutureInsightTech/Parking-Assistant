@@ -1,12 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Reserved Parking Space</title>
+
+    <link rel="stylesheet" href="/dashboard-style.css">
+    <link rel="stylesheet" href="/dashboard-logo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+    <!-- Scripts -->
+    <link rel="shortcut icon" href="#" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"
+        integrity="sha512-MgkNs0gNdrnOM7k+0L+wgiRc5aLgl74sJQKbIWegVIMvVGPc1+gc1L2oK9Wf/D9pq58eqIJAxOonYPVE5UwUFA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <title>View user Profile Data</title>
 </head>
+
 <body>
-    <h1>User Reserved Space</h1>
+    <div class="container-scroller">
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                    <img src="/image/logo2.jpg" class="logoimage">
+                </a>
+            </div>
+
+            <ul class="nav">
+                <li class="nav-item nav-category">
+                    <span class="nav-link">Navigation</span>
+                </li>
+                <li class="nav-item menu-items">
+                    <a class="nav-link" href="/manager-dashboard">
+                        <span class="menu-icon">
+                            <i class="fa-solid fa-house-user"></i>
+                        </span>
+                        <span class="menu-title">Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item menu-items">
+                    <a class="nav-link" data-toggle="collapse" href="/add-user" aria-expanded="false"
+                        aria-controls="ui-basic">
+                        <span class="menu-icon">
+                            <i class="fa-solid fa-user"></i>
+                        </span>
+                        <span class="menu-title">Add User</span>
+                    </a>
+
+                </li>
+                <li class="nav-item menu-items">
+                    <a class="nav-link" data-toggle="collapse" href="/DisplayUserParkingMap" aria-expanded="false"
+                        aria-controls="ui-basic">
+                        <span class="menu-icon">
+                            <i class="fa-solid fa-user"></i>
+                        </span>
+                        <span class="menu-title">User Input Parking Map</span>
+                    </a>
+
+                </li>
+                {{!-- <li class="nav-item menu-items">
+                    <a class="nav-link" href="/set-parking-rate">
+                        <span class="menu-icon">
+                            <i class="fa-solid fa-money-bill-1"></i>
+                        </span>
+                        <span class="menu-title">Set Parking Rate</span>
+                    </a>
+                </li> --}}
+                <li class="nav-item menu-items">
+                    <a class="nav-link" href="/view-update-delete-user-profile">
+                        <span class="menu-icon">
+                            <i class="fa-solid fa-id-badge"></i>
+                        </span>
+                        <span class="menu-title">View User Profile</span>
+                    </a>
+                </li>
+                <li class="nav-item menu-items">
+                    <a class="nav-link" href="/view-suggestions">
+                        <span class="menu-icon">
+                            <i class="fa-solid fa-address-book"></i>
+                        </span>
+                        <span class="menu-title">View Suggestion From Contact Page</span>
+                    </a>
+                </li>
+                <li class="nav-item menu-items">
+                    <a class="nav-link" href="/view-user-reserved">
+                        <span class="menu-icon">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </span>
+                        <span class="menu-title">View user Reserved Parking location</span>
+                    </a>
+                </li>
+
+                <li class="nav-item menu-items">
+                    <a class="nav-link" data-toggle="collapse" href="/parking-map" aria-expanded="false"
+                        aria-controls="ui-basic">
+                        <span class="menu-icon">
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                            {{!-- <i class="bi-map"></i> --}}
+                        </span>
+                        <span class="menu-title">Parking Map Display</span>
+                    </a>
+
+                </li>
+
+            </ul>
+        </nav>
+        <div class="container-fluid page-body-wrapper">
+            <nav class="navbar p-0 fixed-top d-flex flex-row">
+                <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
+                    <ul class="navbar-nav navbar-nav-right">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="/logout">
+                                <div class="navbar-profile">
+                                    <i class="fa-solid fa-arrow-right-from-bracket" style="color: red;"></i>
+                                    <p class="mb-0 d-none d-sm-block navbar-profile-name">Logout</p>
+                                    <i class="mdi mdi-menu-down d-none d-sm-block"></i>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <br>
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    <div class="row">
+                        <div class="col-md-12 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex flex-row justify-content-between">
+                                        <h4 class="card-title mb-1">Approve Parking Slot</h4>
+                                    </div>
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="table-responsive fixed-table-body">
+                                                <table style="width:100%;" id="myTable",
+                                                    class="table table-hover table-dark " method="GET"
+                                                    action="/auth/approved">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">User Email</th>
+                                                            <th scope="col">Parking Slot</th>
+                                                            <th scope="col">Start Time</th>
+                                                            <th scope="col">End Time</th>
+                                                            <th scope="col">Operations</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        {{#each rows }}
+                                                        <tr>
+                                                            <th scope="row">{{this.user_email}}</th>
+                                                            <td scope="row">{{this.parking_location}}</td>
+                                                            <td scope="row">{{this.start_time}}</td>
+                                                            <td scope="row">{{this.end_time}}</td>
+
+                                                            <td>
+                                                                <a href="/edit-user/{{this.id}}" type="button"
+                                                                    class="btn btn-loght btn-small"><i
+                                                                        class="fa fa-check"></i>Approved</a>
+                                                                <a href="/view-user-reserved/delete/{{this.Id}}"
+                                                                    type="button" class="btn btn-loght btn-small"><i
+                                                                        class="fa fa-trash"></i>Reject</i></a>
+                                                            </td>
+
+
+                                                        </tr>
+                                                        {{/each}}
+                                                    </tbody>
+                                                </table>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>

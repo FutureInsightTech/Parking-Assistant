@@ -30,12 +30,29 @@ router.get("/view-update-delete-user-profile/delete/:id", function (req, res) {
   });
 });
 
+const approved = require("../controllers/approved");
+// Routes
+router.get("/view-user-reserved", approved.view);
+//Record Deleted
+router.get("/view-user-reserved/delete/:Id", function (req, res) {
+  var id = req.params.Id;
+  var sql = `DELETE FROM Approval_Parking WHERE id=${id}`;
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("record deleted!");
+    res.redirect("/view-user-reserved");
+  });
+});
+
+
+// router.get("/edit-user", UserDataViewController.view);
 // router.get('/view-update-delete-user-profile/edit-user/:id', function (req, res) {
 //   var id= req.params.id;
+//   res.render("update_profile")
 //   con.query("UPDATE user SET ?",function (err,data) {
-//       if(error) throw err;
-//       console.log(data);
-//       console.log("Data is Updated");
+//       //if(error) throw err;
+//       //console.log(data);
+//       //console.log("Data is Updated");
 //       res.redirect("/view-update-delete-user-profile");
 //   }); 
 // });
@@ -156,5 +173,8 @@ router.get("/ViewProfile",(req, res) => {
 router.get("/DisplayUserParkingMap", (req, res) => {
   res.render("UserInputParkingMap");
 });
-
+//this will render the update Profile page
+router.get("/update_profile", (req, res) => {
+  res.render("update_profile");  
+})
 module.exports = router;
