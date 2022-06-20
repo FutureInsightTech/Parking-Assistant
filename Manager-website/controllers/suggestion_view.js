@@ -4,7 +4,7 @@
 //  #                      #### 99marafay@gmail.com    #####                      #
 //  #                      #### Github: rafay99-epic   #####                      #
 //  #                      #### The Aruth File in the  #####                      #
-//  #                      #### user-managerment       #####                      #
+//  #                      #### View Suggestions       #####                      #
 //  #                                                                             #
 //  ###############################################################################
 
@@ -28,13 +28,13 @@ let connection = mysql.createConnection({
 
 //this will render data for the suggestion pages
 exports.view = (req, res) => {
-  connection.query("SELECT * FROM contact_page", (error, rows) => {
-    if(!error) 
+  connection.query("SELECT * FROM contact_page", (err, rows) => {
+    if(!err) 
     {
-      res.render("view-suggestions",{rows});
+      res.render("view-suggestions", { rows });
     }
     else {
-      console.log(error);
+      console.log(err);
     }
   });
 };

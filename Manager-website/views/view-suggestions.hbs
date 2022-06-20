@@ -143,7 +143,6 @@
                                                     action="/auth/view-suggestions">
                                                     <thead>
                                                         <tr>
-                                                            <th scope="col">ID</th>
                                                             <th scope="col">Name</th>
                                                             <th scope="col">Email</th>
                                                             <th scope="col">Subject</th>
@@ -153,8 +152,7 @@
                                                     <tbody>
                                                         {{#each rows }}
                                                         <tr>
-                                                            <th scope="row">{{this.ID}}</th>
-                                                            <th scope="row">{{this.Name}}</th>
+                                                            <td scope="row">{{this.Name}}</td>
                                                             <td scope="row">{{this.Email}}</td>
                                                             <td scope="row">{{this.Subject }}</td>
                                                             <td scope="row">{{this.Message}}</td>

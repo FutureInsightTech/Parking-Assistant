@@ -24,7 +24,10 @@ const updateRentRate = require("../controllers/update_rate")
 const userlogin = require("../controllers/userlogin")
 //Calling the reverseparking controller
 const reverseparking= require("../controllers/reverseparking")
-
+//calling permission permission Parking for the user
+const permissionParking = require("../controllers/permissionParking")
+// calling the approved js file  fro the  manager
+const approved = require("../controllers/approved")
 //Enter Data into the Database
 //Manager Side
 
@@ -53,7 +56,8 @@ router.get("/view-update-delete-user-profile",usermanagementController.view);
 //View Suggestions in the suggestion pages
 const suggestion_view = require("../controllers/suggestion_view")
 router.get("/view-suggestions",suggestion_view.view);
-
+// View data for appproval Parking slot
+router.get("/approved",approved.view);
 //Enter Data into the Database
 //User Section: 
 
@@ -61,6 +65,8 @@ router.get("/view-suggestions",suggestion_view.view);
 router.post("/user-login",userlogin.register);
 //this will redirect to the reverseparking controller
 router.post("/reverseparking",reverseparking.register);
+
+router.post("/permissionParking",permissionParking.register);
 
 
 
