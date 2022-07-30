@@ -18,7 +18,7 @@ let connection = mysql.createConnection({
 
 exports.view = (req, res) => {
   // User the connection
-  connection.query("SELECT * FROM Approval_Parking", (err, rows) => {
+  connection.query("SELECT * FROM reserved_parking", (err, rows) => {
     if (!err) {
       res.render("view-user-reserved", { rows });
     } else {

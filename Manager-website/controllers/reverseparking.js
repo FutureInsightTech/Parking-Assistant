@@ -44,9 +44,22 @@ exports.register =(req,res) => {
             }
             else{
                 console.log("Parking Spot is Reserved");
-                res.render('reverseParking',{
-                    message: "Parking Alot is Reserved",
-                });
+                
+                if(user_email == "99marafay@gmail.com"){
+                    console.log("Manager Parking Slot Confirmation");
+                    res.render('manager-reversed-parking',{
+                        message: "Parking Alot is Reserved For Manager",
+                    });
+                }
+                else{
+                    console.log("User Parking Slot Confirmation");
+                    res.render('reverseParking',{
+                        message: "Parking Alot is Reserved",
+                    });
+                }
+
+
+                
             }
         });
   

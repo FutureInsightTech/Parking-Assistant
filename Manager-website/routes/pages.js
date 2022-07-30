@@ -36,7 +36,7 @@ router.get("/view-user-reserved", approved.view);
 //Record Deleted
 router.get("/view-user-reserved/delete/:Id", function (req, res) {
   var id = req.params.Id;
-  var sql = `DELETE FROM Approval_Parking WHERE id=${id}`;
+  var sql = `DELETE FROM reserved_parking WHERE id=${id}`;
   con.query(sql, function (err, result) {
     if (err) throw err;
     console.log("record deleted!");
@@ -135,11 +135,18 @@ router.get("/view-user-reserved", (req, res) => {
 router.get("/update-rate", (req, res) => {
   res.render("update-rate");
 });
+//this will render the manager Reveresed parking 
+router.get("/manager-reversed-parking", (req, res) => {
+  res.render("manager-reversed-parking");
+});
+
 // this will for logout and destory session for the admin
 router.get("/logout", (req, res) => {
   req.session.destroy();
   res.redirect("/manager_login");
 });
+
+
 
 
 //User Side Pages render
