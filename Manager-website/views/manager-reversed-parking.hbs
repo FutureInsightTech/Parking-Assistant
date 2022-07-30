@@ -136,22 +136,13 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="d-flex flex-row justify-content-between">
-                                        <h4 class="card-title mb-1">Revers Parking Area</h4>
+                                        <h4 class="card-title mb-1">Reserved Parking</h4>
                                     </div>
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="preview-list">
-                                                <div class="mask d-flex align-items-center h-100 gradient-custom-3">
-                                                    <div class="container h-100">
-                                                        <div
-                                                            class="row d-flex justify-content-center align-items-center h-100">
-                                                            <div class="col-12 col-md-9 col-lg-7 col-xl-6">
-                                                                <div class="card"
-                                                                    style="border-radius: 15px; background-color: white; color: black">
-                                                                    <div class="card-body p-5">
-                                                                        <h2 class="text-uppercase text-center mb-5">
-                                                                            Reverse Parking Rate</h2>
-                                                                        <form action="/auth/reverseparking" method="POST">
+                                                <br>
+                                                <form action="/auth/reverseparking" method="POST">
                                                                             {{#if message}}
                                                                             <h4 class="alert alert-success mt-12">
                                                                                 {{message}}</h4>
@@ -173,7 +164,7 @@
                                                                                 <label class="form-label"
                                                                                     for="form3Example1cg">User Email
                                                                                     </label>
-                                                                                <input type="text" name="user_email"  value= "99marafay@gmail.com" class="form-control form-control-lg"
+                                                                                <input type="text" name="user_email" value="99marafay@gmail.com" class="form-control form-control-lg"
                                                                                     id="user_email"/>
                                                                                 {{!-- Select Starting Time --}}
                                                                                 <label class="form-label"
@@ -194,13 +185,7 @@
                                                                                     class="btn btn-success btn-block btn-lg text-body">Reverse Parking Space</button>
                                                                             </div>
                                                                             <script src="../controllers/delete_reversed_parking.js"></script>
-                                                                        </form>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
@@ -208,6 +193,7 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>

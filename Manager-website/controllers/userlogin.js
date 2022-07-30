@@ -24,12 +24,14 @@ exports.register = (req, res, next) => {
     
     if (isValid) {
       res.redirect("/user_dashboard");
+      console.log("Login Successful");    
       res.end();
     } else {
-    
       res.redirect("/user-login");
+      console.log("Incorrect Password");
       res.end();
       return;
     }
   });
 };
+
