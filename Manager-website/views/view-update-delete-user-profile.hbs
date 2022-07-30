@@ -32,6 +32,7 @@
             </div>
 
             <ul class="nav">
+
                 <li class="nav-item nav-category">
                     <span class="nav-link">Navigation</span>
                 </li>
@@ -59,24 +60,27 @@
                         <span class="menu-icon">
                             <i class="fa-solid fa-user"></i>
                         </span>
-                        <span class="menu-title">User Input Parking Map</span>
+                        <span class="menu-title">Custom Parking Map</span>
                     </a>
 
                 </li>
-                {{!-- <li class="nav-item menu-items">
-                    <a class="nav-link" href="/set-parking-rate">
+
+                <li class="nav-item menu-items">
+                    <a class="nav-link" data-toggle="collapse" href="/manager-reversed-parking" aria-expanded="false"
+                        aria-controls="ui-basic">
                         <span class="menu-icon">
-                            <i class="fa-solid fa-money-bill-1"></i>
+                            <i class="fa-solid fa-parking"></i>
                         </span>
-                        <span class="menu-title">Set Parking Rate</span>
+                        <span class="menu-title">Reversed Parking</span>
                     </a>
-                </li> --}}
+                </li>
+                
                 <li class="nav-item menu-items">
                     <a class="nav-link" href="/view-update-delete-user-profile">
                         <span class="menu-icon">
                             <i class="fa-solid fa-id-badge"></i>
                         </span>
-                        <span class="menu-title">View User Profile</span>
+                        <span class="menu-title">User Profile</span>
                     </a>
                 </li>
                 <li class="nav-item menu-items">
@@ -84,7 +88,7 @@
                         <span class="menu-icon">
                             <i class="fa-solid fa-address-book"></i>
                         </span>
-                        <span class="menu-title">View Suggestion From Contact Page</span>
+                        <span class="menu-title">Suggestion</span>
                     </a>
                 </li>
                 <li class="nav-item menu-items">
@@ -92,7 +96,7 @@
                         <span class="menu-icon">
                             <i class="fa-solid fa-circle-check"></i>
                         </span>
-                        <span class="menu-title">View user Reserved Parking location</span>
+                        <span class="menu-title">Reserved Parking Slot</span>
                     </a>
                 </li>
 
@@ -101,9 +105,8 @@
                         aria-controls="ui-basic">
                         <span class="menu-icon">
                             <i class="fa fa-map-marker" aria-hidden="true"></i>
-                            {{!-- <i class="bi-map"></i> --}}
                         </span>
-                        <span class="menu-title">Parking Map Display</span>
+                        <span class="menu-title">Parking Direction</span>
                     </a>
 
                 </li>
@@ -161,9 +164,9 @@
                                                             <td scope="row">{{this.user_date_of_birth}}</td>
 
                                                             <td>
-                                                                <a href="/edit-user/{{this.id}}" type="button"
+                                                                {{!-- <a href="/edit-user/{{this.id}}" type="button"
                                                                     class="btn btn-loght btn-small"><i
-                                                                        class="fa fa-pencil"></i>Edit</a>
+                                                                        class="fa fa-pencil"></i>Edit</a> --}}
                                                                 <a href="/view-update-delete-user-profile/delete/{{this.id}}"
                                                                     type="button" class="btn btn-loght btn-small"><i
                                                                         class="fa fa-trash"></i>Delete </i></a>
