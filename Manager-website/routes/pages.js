@@ -36,7 +36,7 @@ router.get("/view-user-reserved", approved.view);
 //Record Deleted
 router.get("/view-user-reserved/delete/:Id", function (req, res) {
   var id = req.params.Id;
-  var sql = `DELETE FROM Approval_Parking WHERE id=${id}`;
+  var sql = `DELETE FROM reserved_parking WHERE id=${id}`;
   con.query(sql, function (err, result) {
     if (err) throw err;
     console.log("record deleted!");
