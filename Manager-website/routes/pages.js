@@ -135,11 +135,18 @@ router.get("/view-user-reserved", (req, res) => {
 router.get("/update-rate", (req, res) => {
   res.render("update-rate");
 });
+//this will render the manager Reveresed parking 
+router.get("/manager-reversed-parking", (req, res) => {
+  res.render("manager-reversed-parking");
+});
+
 // this will for logout and destory session for the admin
 router.get("/logout", (req, res) => {
   req.session.destroy();
   res.redirect("/manager_login");
 });
+
+
 
 
 //User Side Pages render
