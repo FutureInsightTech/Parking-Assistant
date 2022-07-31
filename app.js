@@ -59,7 +59,8 @@ app.use("/", require("./routes/pages"));
 app.use("/auth", require("./routes/auth"));
 
 //The is port number from which the server will run and website will operate.
-app.listen(8080, () => {
+const port_website= process.env.port || 8080; 
+app.listen(port_website, () => {
   console.log("Node Server is running at port 8080");
 });
 // ##### This part of the server will run th hardware and will display data from hardware to the website.  ####
@@ -96,7 +97,8 @@ parser.on("data", function (data) {
   // console.log("Received data from port: " + data);
   io.emit("data", data);
 });
+const port_hardware= process.env.port || 3000;
 //THis will be port number through which the derever for hardware will be Listening.
-app.listen(3000, () => {
+app.listen(port_hardware, () => {
   console.log("The server for the hardware is working on port 3000");
 });
