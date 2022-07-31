@@ -59,44 +59,44 @@ app.use("/", require("./routes/pages"));
 app.use("/auth", require("./routes/auth"));
 
 //The is port number from which the server will run and website will operate.
-app.listen(5000, () => {
-  console.log("Node Server is running at port 5000");
+app.listen(8080, () => {
+  console.log("Node Server is running at port 8080");
 });
 // ##### This part of the server will run th hardware and will display data from hardware to the website.  ####
 
 //Below This Are Socket.io Communication Donot Change Anything Except port
-// var http = require("http");
-// var fs = require("fs");
-// var index = fs.readFileSync("./views/view-parking.hbs");
+var http = require("http");
+var fs = require("fs");
+var index = fs.readFileSync("./views/view-parking.hbs");
 
-// const { SerialPort } = require("serialport");
-// const { ReadlineParser } = require("@serialport/parser-readline");
-// var port = new SerialPort({
-//   path: "COM4", //Change This Port Only
-//   baudRate: 9600,
-//   dataBits: 8,
-//   parity: "none",
-//   stopBits: 1,
-// });
+const { SerialPort } = require("serialport");
+const { ReadlineParser } = require("@serialport/parser-readline");
+var port = new SerialPort({
+  path: "COM4", //Change This Port Only
+  baudRate: 9600,
+  dataBits: 8,
+  parity: "none",
+  stopBits: 1,
+});
 
-// const parser = port.pipe(new ReadlineParser({ delimiter: "\r\n" }));
-// port.pipe(parser);
+const parser = port.pipe(new ReadlineParser({ delimiter: "\r\n" }));
+port.pipe(parser);
 
-// parser.on("data", function (data) {
-//   // console.log(data);
-// });
-// var app = http.createServer(function (req, res) {
-//   res.writeHead(200, { "Content-Type": "text/html" });
-//   res.end(index);
-// });
+parser.on("data", function (data) {
+  // console.log(data);
+});
+var app = http.createServer(function (req, res) {
+  res.writeHead(200, { "Content-Type": "text/html" });
+  res.end(index);
+});
 
-// const io = require("socket.io")(app);
+const io = require("socket.io")(app);
 
-// parser.on("data", function (data) {
-//   // console.log("Received data from port: " + data);
-//   io.emit("data", data);
-// });
-// //THis will be port number through which the derever for hardware will be Listening.
-// app.listen(3000, () => {
-//   console.log("The server for the hardware is working on port 3000");
-// });
+parser.on("data", function (data) {
+  // console.log("Received data from port: " + data);
+  io.emit("data", data);
+});
+//THis will be port number through which the derever for hardware will be Listening.
+app.listen(3000, () => {
+  console.log("The server for the hardware is working on port 3000");
+});
