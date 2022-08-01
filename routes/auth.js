@@ -17,9 +17,9 @@ const suggestionController = require("../controllers/suggest")
 //calling the login controllerfrom the controller folders
 const managerloginController = require("../controllers/managerlogin")
 //calling the reservation rate
-const reservationRate = require("../controllers/rent_rate")
+// const reservationRate = require("../controllers/rent_rate")
 //CALLING UPDATE rent.
-const updateRentRate = require("../controllers/update_rate")
+// const updateRentRate = require("../controllers/update_rate")
 //getting the user login controller from controller page
 const userlogin = require("../controllers/userlogin")
 //Calling the reverseparking controller
@@ -41,9 +41,9 @@ router.post("/suggestion",suggestionController.register);
 //router.post("/manager_login",managerloginController.managerlogin);
 router.post("/manager_login",managerloginController.register);
 //Redirecting to the rent rate.
-router.post("/rent_rate",reservationRate.register);
+// router.post("/rent_rate",reservationRate.register);
 //this will redirect to the update rent page
-router.post("/update_rate",updateRentRate.register);
+// router.post("/update_rate",updateRentRate.register);
 
 
 //View Data From the Database
@@ -66,7 +66,7 @@ router.post("/user-login",userlogin.register);
 //this will redirect to the reverseparking controller
 router.post("/reverseparking",reverseparking.register);
 
-router.post("/permissionParking",permissionParking.register);
+// router.post("/permissionParking",permissionParking.register);
 
 
 
