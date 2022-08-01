@@ -34,8 +34,8 @@ const approved = require("../controllers/approved");
 // Routes
 router.get("/view-user-reserved", approved.view);
 //Record Deleted
-router.get("/view-user-reserved/delete/:Id", function (req, res) {
-  var id = req.params.Id;
+router.get("/view-user-reserved/delete/:id", function (req, res) {
+  var id = req.params.id;
   var sql = `DELETE FROM reserved_parking WHERE id=${id}`;
   con.query(sql, function (err, result) {
     if (err) throw err;
@@ -43,20 +43,6 @@ router.get("/view-user-reserved/delete/:Id", function (req, res) {
     res.redirect("/view-user-reserved");
   });
 });
-
-
-// router.get("/edit-user", UserDataViewController.view);
-// router.get('/view-update-delete-user-profile/edit-user/:id', function (req, res) {
-//   var id= req.params.id;
-//   res.render("update_profile")
-//   con.query("UPDATE user SET ?",function (err,data) {
-//       //if(error) throw err;
-//       //console.log(data);
-//       //console.log("Data is Updated");
-//       res.redirect("/view-update-delete-user-profile");
-//   }); 
-// });
-
 
 //KEY Points
 // The Default Directory for handle Bars is the View Directory
