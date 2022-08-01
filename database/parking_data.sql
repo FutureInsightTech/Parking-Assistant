@@ -111,7 +111,7 @@ INSERT INTO `parking_rate` (`ID`, `Parking_rate`) VALUES
 --
 
 CREATE TABLE `reserved_parking` (
-  `reverse_ID` int(255) NOT NULL,
+  `id` int(255) NOT NULL,
   `user_email` varchar(255) NOT NULL,
   `parking_location` varchar(255) DEFAULT NULL,
   `start_time` time NOT NULL,
@@ -122,7 +122,7 @@ CREATE TABLE `reserved_parking` (
 -- Dumping data for table `reserved_parking`
 --
 
-INSERT INTO `reserved_parking` (`reverse_ID`, `user_email`, `parking_location`, `start_time`, `end_time`) VALUES
+INSERT INTO `reserved_parking` (`id`, `user_email`, `parking_location`, `start_time`, `end_time`) VALUES
 (1, '', 'Parking Spot A18', '00:00:00', '00:00:00'),
 (2, 'mike.ross123@gmail.com', 'Parking Spot A24', '23:55:00', '00:00:00'),
 (3, 'saif1234@outlook.com', 'Parking Spot A12', '23:04:00', '00:04:00');
@@ -182,7 +182,7 @@ ALTER TABLE `parking_rate`
 -- Indexes for table `reserved_parking`
 --
 ALTER TABLE `reserved_parking`
-  ADD PRIMARY KEY (`reverse_ID`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `user`
@@ -216,7 +216,7 @@ ALTER TABLE `parking_rate`
 -- AUTO_INCREMENT for table `reserved_parking`
 --
 ALTER TABLE `reserved_parking`
-  MODIFY `reverse_ID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `user`
