@@ -14,7 +14,7 @@ const dotenv = require("dotenv");
 const router = require("../routes/pages");
 
 //Getting the .ev file
-dotenv.config({ path: "../.env" });
+dotenv.config({ path: "./.env" });
 
 // Connection Pool
 let connection = mysql.createConnection({
