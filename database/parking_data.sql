@@ -216,7 +216,7 @@ ALTER TABLE `parking_rate`
 -- AUTO_INCREMENT for table `reserved_parking`
 --
 ALTER TABLE `reserved_parking`
-  MODIFY `reverse_ID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `user`
