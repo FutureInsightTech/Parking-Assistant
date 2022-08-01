@@ -182,7 +182,7 @@ ALTER TABLE `parking_rate`
 -- Indexes for table `reserved_parking`
 --
 ALTER TABLE `reserved_parking`
-  ADD PRIMARY KEY (`reverse_ID`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `user`
