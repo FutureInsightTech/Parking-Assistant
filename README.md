@@ -200,8 +200,8 @@ In order for the application to display live location using [Socket.Io](http://S
 - Once terminal is opened then enter the following command
 
 ```jsx
-cd Website-Manager
-node app.js
+npm install
+npm start
 ```
 
 - Once all all the command are enter the your application will run.
